@@ -15,7 +15,7 @@ class Order extends Model
     // علاقة الطلب بالعميل
     public function client()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(User::class);
     }
 
     // علاقة الطلب بعناصر الطلب

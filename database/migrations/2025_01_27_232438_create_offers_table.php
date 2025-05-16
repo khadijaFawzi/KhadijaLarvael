@@ -14,15 +14,21 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('supermarket_id')->constrained('super_markets')->onDelete('cascade');
-            $table-> foreignId('Product_id')->constrained()->onDelete('cascade');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->decimal('discount_percentage');
-            $table->string('Description');
+            $table->foreignId('supermarket_id')->constrained('super_markets')->onDelete('cascade')->default(false);
+            $table->foreignId('Product_id')->constrained()->onDelete('cascade')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->decimal('discount_percentage')->nullable();
+            $table->string('Description')->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('is_ai_processed')->default(false);
+            $table->text('extracted_text')->nullable();
+            $table->boolean('is_verified')->default(false);
             $table->timestamps();
         });
     }
+    
+    
 
     /**
      * Reverse the migrations.
@@ -30,5 +36,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('offers');
+       
     }
 };

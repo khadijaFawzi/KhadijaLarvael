@@ -14,14 +14,18 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table-> foreignId('Role_id')->constrained()->onDelete('cascade');
-            $table->string('username');
+            $table->foreignId('Role_id')->constrained()->onDelete('cascade');
+            $table->string('username'); // كما هو في الموقع
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('phone_number')->nullable(); // من التطبيق
+            $table->text('address')->nullable();        // من التطبيق
+            $table->string('profile_image_url')->nullable(); // من التطبيق
+            $table->boolean('is_admin')->default(false);     // من التطبيق
             $table->rememberToken();
             $table->timestamps();
-        });
+});
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();

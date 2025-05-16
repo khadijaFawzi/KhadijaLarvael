@@ -13,10 +13,7 @@ class Favorite extends Model
     ];
 
     // علاقة المفضلة بالعميل
-    public function client()
-    {
-        return $this->belongsTo(Client::class);
-    }
+   
 
     // علاقة المفضلة بالمنتج
     public function product()

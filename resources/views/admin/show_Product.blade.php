@@ -53,6 +53,7 @@
                         <th class="py-3 px-4 text-right">السعر</th>
                         <th class="py-3 px-4 text-right">الفئة</th>
                         <th class="py-3 px-4 text-right">الوصف</th>
+                        <th class="py-3 px-4 text-right">الباركود</th>
                         <th class="py-3 px-4 text-right">صورة المنتج</th>
                         <th class="py-3 px-4 text-center">الإجراءات</th>
                     </tr>
@@ -65,6 +66,8 @@
             <td>{{$product->Price}}</td>
             <td>{{$product->Category_id}}</td>
             <td>{{$product->Description}}</td>
+            <td>{{$product->barcode}}</td>
+            
         
             <td>
     <img src="{{ asset('products/'.$product->Image) }}" style="width: 100px; height: 70px; max-width: 100%; border-radius: 5px;" alt="{{ $product->product_name }}">

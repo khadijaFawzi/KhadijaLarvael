@@ -41,9 +41,11 @@ Route::post('/supermarket/store', [SupermarketController::class, 'store'])->name
 // ----------------EndSupermarketController Route
 
 
+Route::resource('admin/categories', CategoriesController::class)
+     ->names(['index'=>'admin.categories.index', 'store'=>'admin.categories.store', /* … */]);
 
 
-Route::resource('/categorise', CategoriesController::class) ;
+
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
@@ -92,6 +94,18 @@ Route::post('/supermarket/{supermarket_id}/update_offers_confirm/{id}', [OfferCo
 
 
 Route::get('/supermarket/{supermarket_id}/offers_process', [OfferController::class, 'offers_process'])->name('offers_process');
+
+
+
+
+
+
+
+Route::get('/offers_process/{supermarket_id}', [OfferController::class, 'offers_process'])->name('offers_process');
+Route::get('/Show_offersProces/{supermarket_id}', [OfferController::class, 'Show_offersProces'])->name('Show_offersProces');
+Route::post('/process_offer_image/{supermarket_id}', [OfferController::class, 'process_offer_image'])->name('process_offer_image');
+Route::get('/edit_ai_offer/{supermarket_id}/{id}', [OfferController::class, 'edit_ai_offer'])->name('edit_ai_offer');
+Route::post('/update_ai_offer/{supermarket_id}/{id}', [OfferController::class, 'update_ai_offer'])->name('update_ai_offer');
 //---------------------- End Offers Route
 
 

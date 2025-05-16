@@ -103,6 +103,20 @@
                                     placeholder="أدخل وصفاً تفصيلياً للمنتج..."></textarea>
                             </div>
                             
+                            <!-- الباركود -->
+<div class="mb-4">
+    <label for="barcode" class="block text-sm font-medium text-gray-700 mb-2">
+        الباركود (اختياري)
+    </label>
+    <input type="text" name="barcode" id="barcode" 
+        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+        placeholder="أدخل كود الباركود إن وجد">
+    <p class="text-xs text-gray-500 mt-1">أدخل الباركود من خلف المنتج إن كان متوفراً، أو اتركه فارغاً.</p>
+</div>
+
+                            
+
+                            
                             <!-- أزرار الإرسال وإعادة التعيين -->
                             <div class="flex items-center justify-end space-x-4 space-x-reverse">
                                 <button type="reset" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500">
@@ -116,6 +130,31 @@
                             </div>
                         </form>
             </div>
+               <!-- قسم المعلومات الإضافية -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden form-card">
+          
+          <div class="p-6">
+          <h3 class="text-gray-600 text-sm font-medium mb-4">
+                  <i class="bi bi-info-circle-fill mr-1"></i>
+                  ملاحظات هامة 
+              </h3>
+              
+              <ul class="text-gray-700 space-y-2">
+                  <li class="flex items-start">
+                      <i class="bi bi-check-circle-fill text-green-500 mt-1 ml-2"></i>
+                      <span>احرص على اضافة الفئة عند اسم المنتج ( مثلا كجم) لكي يتم عرضها بشكل صحيح والمكان المناسب للعملاء في تطبيق الجوال</span>
+                  </li>
+                  <li class="flex items-start">
+                      <i class="bi bi-check-circle-fill text-green-500 mt-1 ml-2"></i>
+                      <span>احرص على اضافة صورة ذات جودة عالية</span>
+                  </li>
+                  <li class="flex items-start">
+                      <i class="bi bi-check-circle-fill text-green-500 mt-1 ml-2"></i>
+                      <span>احرص على الاضافة باللغة العربية .</span>
+                  </li>
+              </ul>
+          </div>
+      </div>
         </div>
     
         </div>

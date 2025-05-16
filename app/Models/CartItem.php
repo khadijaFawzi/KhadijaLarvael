@@ -16,7 +16,7 @@ class CartItem extends Model
     // علاقة عنصر السلة بالسلة
     public function cart()
     {
-        return $this->belongsTo(ClientCart::class, 'cart_id');
+        return $this->belongsTo(Carts::class, 'cart_id');
     }
 
     // علاقة عنصر السلة بالمنتج

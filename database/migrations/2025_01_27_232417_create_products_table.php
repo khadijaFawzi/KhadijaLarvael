@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
+           Schema::disableForeignKeyConstraints();
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('supermarket_id')->constrained('super_markets')->onDelete('cascade');
@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('Price');
             $table->string('Image');
             $table->text('Description');
+              $table->string('barcode')->nullable()->index(); // ✅ هذا هو الكود الموحد الاختياري
             $table->timestamps();
         });
     }

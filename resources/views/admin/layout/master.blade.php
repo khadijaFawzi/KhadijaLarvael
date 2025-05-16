@@ -26,7 +26,7 @@
             background-color: #d7c3b0;
         }
         .bg-custom_hover{
-           background-color: #9c7356; 
+           background-color:AE(255,139,90,43)
         }
       
         .font {
@@ -427,6 +427,12 @@
                                             <span>عرض العروض</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{ route('Show_offersProces', ['supermarket_id' => $supermarket->id]) }}">
+                                            <i class="bi bi-circle ml-3 text-xs"></i>
+                                            <span>عرض صورالعروض</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             
@@ -529,9 +535,10 @@
                                     </span>
                                     <span class="font">مدير النظام</span>
                                 </div>
-                                <div class="h-9 w-9 rounded-full bg-blue-500 flex items-center justify-center overflow-hidden text-white" img src="{{ asset('uploads/'.$supermarket->profile_image) }}">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
+                                <div class="h-9 w-9  flex items-center justify-center overflow-hidden text-white">
+    <img class="w-full h-full object-cover" src="{{ asset('uploads/'.$supermarket->profile_image) }}" alt="Profile Image">
+</div>
+
                             </button>
                             <div id="userMenu" class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden">
                                 <div class="py-1">

@@ -360,7 +360,7 @@
                                 </div>
                                 <h3 class="font-bold text-xl">إدارة المتجر الإلكتروني</h3>
                             </div>
-                            <p class="text-gray-600 mb-4">لوحة تحكم متكاملة لإدارة المتجر وإضافة المنتجات وتنظيمها في فئات وتحديث الأسعار والمخزون بشكل مباشر.</p>
+                            <p class="text-gray-600 mb-4">لوحة تحكم متكاملة لإدارة المتجر وإضافة المنتجات وتنظيمها في فئات وتحديث الأسعار  بشكل مباشر.</p>
                             <ul class="text-gray-600">
                                 <li class="mb-2 flex items-start">
                                     <i class="fas fa-check text-brown-500 mt-1 ml-2"></i>
@@ -370,10 +370,7 @@
                                     <i class="fas fa-check text-brown-500 mt-1 ml-2"></i>
                                     <span>تنظيم المنتجات في أقسام وفئات</span>
                                 </li>
-                                <li class="mb-2 flex items-start">
-                                    <i class="fas fa-check text-brown-500 mt-1 ml-2"></i>
-                                    <span>تتبع المخزون وإشعارات انخفاض الكمية</span>
-                                </li>
+                               
                             </ul>
                         </div>
                         
@@ -449,7 +446,7 @@
                             </ul>
                         </div>
                         
-                        <div class="feature-card bg-white border border-gray-200 p-6 rounded-lg hover:border-brown-500">
+                        <!-- <div class="feature-card bg-white border border-gray-200 p-6 rounded-lg hover:border-brown-500">
                             <div class="flex items-center mb-4">
                                 <div class="bg-brown-100 p-3 rounded-full mr-4">
                                     <i class="fas fa-truck text-brown-600 text-xl"></i>
@@ -471,7 +468,7 @@
                                     <span>التكامل مع شركات التوصيل الخارجية</span>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                         
                         <div class="feature-card bg-white border border-gray-200 p-6 rounded-lg hover:border-brown-500">
                             <div class="flex items-center mb-4">
@@ -480,19 +477,19 @@
                                 </div>
                                 <h3 class="font-bold text-xl">طرق الدفع المتعددة</h3>
                             </div>
-                            <p class="text-gray-600 mb-4">دعم لمختلف طرق الدفع لتوفير تجربة سلسة للعملاء وزيادة نسبة إتمام عمليات الشراء.</p>
+                            <p class="text-gray-600 mb-4">دعم لمختلف طرق الدفع عبر العيد من الصرافات لتوفير تجربة سلسة للعملاء وزيادة نسبة إتمام عمليات الشراء.</p>
                             <ul class="text-gray-600">
                                 <li class="mb-2 flex items-start">
                                     <i class="fas fa-check text-brown-500 mt-1 ml-2"></i>
-                                    <span>بطاقات الائتمان ومدى</span>
+                                    <span>العمقي للصرافة</span>
                                 </li>
                                 <li class="mb-2 flex items-start">
                                     <i class="fas fa-check text-brown-500 mt-1 ml-2"></i>
-                                    <span>المحافظ الإلكترونية (Apple Pay, STC Pay)</span>
+                                    <span> الكريمي </span>
                                 </li>
                                 <li class="mb-2 flex items-start">
                                     <i class="fas fa-check text-brown-500 mt-1 ml-2"></i>
-                                    <span>الدفع عند الاستلام</span>
+                                    <span> بن دول</span>
                                 </li>
                             </ul>
                         </div>
@@ -555,7 +552,7 @@
                                         <div class="bg-white rounded-lg shadow-md p-6">
                                             <h3 class="text-2xl font-bold mb-3 text-brown-600">03. تفعيل طرق الدفع والتوصيل</h3>
                                             <p class="text-gray-600">
-                                                حدد طرق الدفع التي تناسب عملائك، وقم بتعيين مناطق التوصيل وأسعارها، بالإضافة إلى خيارات الاستلام من المتجر.
+                                                حدد طرق الدفع عبر الشركات التي تناسب عملائك، وقم بتعيين مناطق التوصيل وأسعارها، بالإضافة إلى خيارات الاستلام من المتجر.
                                             </p>
                                         </div>
                                     </div>
@@ -798,10 +795,10 @@
                                 <h4 class="font-bold text-lg mb-2">هل هناك فترة تجريبية مجانية؟</h4>
                                 <p class="text-gray-600">نعم، نقدم فترة تجريبية مجانية لمدة 14 يومًا لجميع الخطط بدون الحاجة إلى بطاقة ائتمان.</p>
                             </div>
-                            <div class="py-4">
+                            <!-- <div class="py-4">
                                 <h4 class="font-bold text-lg mb-2">كيف يتم حساب العمولة على المبيعات؟</h4>
                                 <p class="text-gray-600">يتم حساب العمولة على إجمالي قيمة الطلب بدون تكلفة التوصيل. يتم خصمها تلقائيًا وتحويل المبلغ المتبقي إلى حسابك البنكي.</p>
-                            </div>
+                            </div> -->
                             <div class="py-4">
                                 <h4 class="font-bold text-lg mb-2">هل هناك تكاليف إضافية أخرى؟</h4>
                                 <p class="text-gray-600">لا توجد تكاليف خفية. الأسعار المعلنة تشمل جميع الميزات المذكورة في كل خطة، بالإضافة إلى نسبة العمولة على المبيعات.</p>
@@ -845,7 +842,7 @@
                                     <div class="bg-brown-100 w-12 h-12 rounded-full flex items-center justify-center font-bold text-brown-600 text-xl mr-4">م</div>
                                     <div>
                                         <h4 class="font-bold">محمد السعيد</h4>
-                                        <p class="text-gray-600 text-sm">سوبر ماركت الأمانة - الرياض</p>
+                                        <p class="text-gray-600 text-sm"> سوبرماركت باسعد_غيل باوزير</p>
                                     </div>
                                 </div>
                             </div>
@@ -868,8 +865,8 @@
                                 <div class="flex items-center">
                                     <div class="bg-brown-100 w-12 h-12 rounded-full flex items-center justify-center font-bold text-brown-600 text-xl mr-4">ف</div>
                                     <div>
-                                        <h4 class="font-bold">فاطمة العلي</h4>
-                                        <p class="text-gray-600 text-sm">سوبر ماركت الوادي - جدة</p>
+                                        <h4 class="font-bold">خالد العلي</h4>
+                                        <p class="text-gray-600 text-sm">سوبر ماركت تبارك_المكلا</p>
                                     </div>
                                 </div>
                             </div>
@@ -892,8 +889,8 @@
                                 <div class="flex items-center">
                                     <div class="bg-brown-100 w-12 h-12 rounded-full flex items-center justify-center font-bold text-brown-600 text-xl mr-4">خ</div>
                                     <div>
-                                        <h4 class="font-bold">خالد الشمري</h4>
-                                        <p class="text-gray-600 text-sm">سوبر ماركت الشمال - الدمام</p>
+                                        <h4 class="font-bold">خالد </h4>
+                                        <p class="text-gray-600 text-sm">سعاد مول_الشحر</p>
                                     </div>
                                 </div>
                             </div>
@@ -920,7 +917,7 @@
                                     <div class="bg-brown-100 w-12 h-12 rounded-full flex items-center justify-center font-bold text-brown-600 text-xl mr-4">ع</div>
                                     <div>
                                         <h4 class="font-bold">عبد الله القحطاني</h4>
-                                        <p class="text-gray-600 text-sm">سوبر ماركت الراية - أبها</p>
+                                        <p class="text-gray-600 text-sm">سوبر ماركت الراية - الوادي</p>
                                     </div>
                                 </div>
                             </div>
@@ -943,8 +940,8 @@
                                 <div class="flex items-center">
                                     <div class="bg-brown-100 w-12 h-12 rounded-full flex items-center justify-center font-bold text-brown-600 text-xl mr-4">ن</div>
                                     <div>
-                                        <h4 class="font-bold">نورة الدوسري</h4>
-                                        <p class="text-gray-600 text-sm">سوبر ماركت النخيل - المدينة المنورة</p>
+                                        <h4 class="font-bold"> محمد العمودي</h4>
+                                        <p class="text-gray-600 text-sm">سوبر ماركت العمودي -الديس</p>
                                     </div>
                                 </div>
                             </div>
@@ -967,8 +964,8 @@
                                 <div class="flex items-center">
                                     <div class="bg-brown-100 w-12 h-12 rounded-full flex items-center justify-center font-bold text-brown-600 text-xl mr-4">س</div>
                                     <div>
-                                        <h4 class="font-bold">سعد المالكي</h4>
-                                        <p class="text-gray-600 text-sm">سوبر ماركت المستقبل - مكة المكرمة</p>
+                                        <h4 class="font-bold">سعد </h4>
+                                        <p class="text-gray-600 text-sm">سوبر ماركت المستقبل - الشرج </p>
                                     </div>
                                 </div>
                             </div>
@@ -1055,32 +1052,14 @@
                     <div class="mb-20">
                         <h3 class="text-2xl font-bold text-center mb-10">فريق العمل</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            <div class="text-center">
-                                <div class="bg-brown-200 w-48 h-48 mx-auto rounded-full mb-4 overflow-hidden">
-                                    <!-- استخدام أيقونة كبديل للصورة -->
-                                    <div class="w-full h-full flex items-center justify-center text-brown-600">
-                                        <i class="fas fa-user-tie text-6xl"></i>
-                                    </div>
-                                </div>
-                                <h4 class="font-bold text-lg">أحمد الخالدي</h4>
-                                <p class="text-gray-600">المؤسس والرئيس التنفيذي</p>
-                            </div>
+                          
                             <div class="text-center">
                                 <div class="bg-brown-200 w-48 h-48 mx-auto rounded-full mb-4 overflow-hidden">
                                     <div class="w-full h-full flex items-center justify-center text-brown-600">
                                         <i class="fas fa-user-tie text-6xl"></i>
                                     </div>
                                 </div>
-                                <h4 class="font-bold text-lg">سارة الزهراني</h4>
-                                <p class="text-gray-600">مديرة المنتجات</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="bg-brown-200 w-48 h-48 mx-auto rounded-full mb-4 overflow-hidden">
-                                    <div class="w-full h-full flex items-center justify-center text-brown-600">
-                                        <i class="fas fa-user-tie text-6xl"></i>
-                                    </div>
-                                </div>
-                                <h4 class="font-bold text-lg">عمر العتيبي</h4>
+                                <h4 class="font-bold text-lg">خديجة بامخرمة</h4>
                                 <p class="text-gray-600">رئيس قسم التطوير</p>
                             </div>
                             <div class="text-center">
@@ -1089,20 +1068,21 @@
                                         <i class="fas fa-user-tie text-6xl"></i>
                                     </div>
                                 </div>
-                                <h4 class="font-bold text-lg">لينا الحربي</h4>
-                                <p class="text-gray-600">مديرة خدمة العملاء</p>
+                                <h4 class="font-bold text-lg">سلمى بريكان</h4>
+                                <p class="text-gray-600">مديرة المنتجات</p>
                             </div>
+                            
                         </div>
                     </div>
                     
-                    <!-- إنجازاتنا -->
+                    <!-- إنجازاتنا
                     <div class="mb-20">
                         <h3 class="text-2xl font-bold text-center mb-10">إنجازاتنا</h3>
                         <div class="relative">
-                            <!-- خط زمني -->
+                     
                             <div class="absolute h-full w-1 bg-brown-200 left-1/2 transform -translate-x-1/2"></div>
                             
-                            <!-- 2018 -->
+                  
                             <div class="relative z-10 mb-12">
                                 <div class="flex items-center flex-col md:flex-row">
                                     <div class="md:w-1/2 mb-8 md:mb-0 md:text-left text-center order-last md:order-first pr-0 md:pr-8 md:ml-8">
@@ -1115,7 +1095,7 @@
                                 </div>
                             </div>
                             
-                            <!-- 2019 -->
+                    
                             <div class="relative z-10 mb-12">
                                 <div class="flex items-center flex-col md:flex-row-reverse">
                                     <div class="md:w-1/2 mb-8 md:mb-0 md:text-right text-center pl-0 md:pl-8 md:mr-8">
@@ -1128,7 +1108,7 @@
                                 </div>
                             </div>
                             
-                            <!-- 2020 -->
+                         
                             <div class="relative z-10 mb-12">
                                 <div class="flex items-center flex-col md:flex-row">
                                     <div class="md:w-1/2 mb-8 md:mb-0 md:text-left text-center order-last md:order-first pr-0 md:pr-8 md:ml-8">
@@ -1141,7 +1121,7 @@
                                 </div>
                             </div>
                             
-                            <!-- 2021 -->
+                        
                             <div class="relative z-10 mb-12">
                                 <div class="flex items-center flex-col md:flex-row-reverse">
                                     <div class="md:w-1/2 mb-8 md:mb-0 md:text-right text-center pl-0 md:pl-8 md:mr-8">
@@ -1154,7 +1134,7 @@
                                 </div>
                             </div>
                             
-                            <!-- 2022 -->
+                    
                             <div class="relative z-10">
                                 <div class="flex items-center flex-col md:flex-row">
                                     <div class="md:w-1/2 mb-8 md:mb-0 md:text-left text-center order-last md:order-first pr-0 md:pr-8 md:ml-8">
@@ -1167,7 +1147,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <!-- اتصل بنا -->
                     <div class="bg-brown-50 p-8 rounded-lg shadow-md text-center">
@@ -1181,21 +1161,21 @@
                                     <i class="fas fa-envelope text-brown-600 ml-2"></i>
                                     <span class="text-gray-600">البريد الإلكتروني:</span>
                                 </div>
-                                <a href="mailto:info@supermarket-platform.com" class="text-brown-600 hover:underline">info@supermarket-platform.com</a>
+                                <a href="mailto:info@supermarket-platform.com" class="text-brown-600 hover:underline">VibeCart.com</a>
                             </div>
                             <div>
                                 <div class="flex items-center justify-center mb-2">
                                     <i class="fas fa-phone-alt text-brown-600 ml-2"></i>
                                     <span class="text-gray-600">رقم الهاتف:</span>
                                 </div>
-                                <a href="tel:+966123456789" class="text-brown-600 hover:underline">+966 12 345 6789</a>
+                                <a href="tel:+966123456789" class="text-brown-600 hover:underline">+967 733 972 484  </a>
                             </div>
                             <div>
                                 <div class="flex items-center justify-center mb-2">
                                     <i class="fas fa-map-marker-alt text-brown-600 ml-2"></i>
                                     <span class="text-gray-600">العنوان:</span>
                                 </div>
-                                <span class="text-gray-600">برج المملكة، طريق الملك فهد، الرياض</span>
+                                <span class="text-gray-600">  المكلا, حضرموت</span>
                             </div>
                         </div>
                     </div>
@@ -1251,87 +1231,109 @@
 
 
         <!-- صفحة إنشاء حساب -->
-        <section id="register" class="page-content">
-            <div class="page-section bg-brown-50 flex items-center justify-center">
-                <div class="container mx-auto px-4">
-                    <div class="auth-form bg-white rounded-lg shadow-lg">
-                        <h2 class="text-2xl font-bold text-center mb-6">إنشاء حساب جديد</h2>
-                        <form id="register-form">
-                            <div class="mb-4">
-                                <label for="store-name" class="block text-gray-700 font-medium mb-2">اسم المتجر</label>
-                                <input type="text" id="store-name" class="form-input" placeholder="أدخل اسم متجرك" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="owner-name" class="block text-gray-700 font-medium mb-2">اسم المالك</label>
-                                <input type="text" id="owner-name" class="form-input" placeholder="أدخل اسمك الكامل" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="register-email" class="block text-gray-700 font-medium mb-2">البريد الإلكتروني</label>
-                                <input type="email" id="register-email" class="form-input" placeholder="أدخل بريدك الإلكتروني" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="phone" class="block text-gray-700 font-medium mb-2">رقم الجوال</label>
-                                <input type="tel" id="phone" class="form-input" placeholder="05xxxxxxxx" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="register-password" class="block text-gray-700 font-medium mb-2">كلمة المرور</label>
-                                <input type="password" id="register-password" class="form-input" placeholder="أدخل كلمة المرور" required>
-                            </div>
-                            <div class="mb-6">
-                                <label for="confirm-password" class="block text-gray-700 font-medium mb-2">تأكيد كلمة المرور</label>
-                                <input type="password" id="confirm-password" class="form-input" placeholder="أعد إدخال كلمة المرور" required>
-                            </div>
-                            <div class="mb-6">
-                                <label for="plan" class="block text-gray-700 font-medium mb-2">اختر الخطة</label>
-                                <select id="plan" class="form-input">
-                                    <option value="basic">الخطة الأساسية - ٢٩٩ ر.س/شهرياً</option>
-                                    <option value="pro" selected>الخطة الاحترافية - ٥٩٩ ر.س/شهرياً</option>
-                                    <option value="advanced">الخطة المتقدمة - ٩٩٩ ر.س/شهرياً</option>
-                                </select>
-                            </div>
-                            <div class="mb-6 flex items-start">
-                                <input type="checkbox" id="terms" class="mt-1 ml-2" required>
-                                <label for="terms" class="text-gray-700">
-                                    أوافق على <a href="#" class="text-brown-600 hover:underline">الشروط والأحكام</a> و <a href="#" class="text-brown-600 hover:underline">سياسة الخصوصية</a>
-                                </label>
-                            </div>
-                            <button type="submit" class="w-full bg-brown-600 text-white py-3 rounded-lg font-bold hover:bg-brown-700 transition duration-300">
-                                إنشاء الحساب
-                            </button>
-                        </form>
-                        <div class="mt-6 text-center">
-                            <p class="text-gray-600">
-                                لديك حساب بالفعل؟ 
-                                <a href="#login" class="text-brown-600 hover:text-brown-700 font-bold" onclick="changePage('login')">
-                                    تسجيل الدخول
-                                </a>
-                            </p>
-                        </div>
-                        
-                        <!-- تعليقات Laravel -->
-                        <div class="mt-8 border-t pt-6 text-gray-500 text-sm">
-                            <!-- 
-                            في Laravel، يمكن استخدام:
-                            <form method="POST" action="{{ route('register') }}">
-                                @csrf
-                                ...
-                            </form>
-                            
-                            للتحقق من صحة البيانات في الخلفية:
-                            $request->validate([
-                                'store_name' => 'required|string|max:255',
-                                'email' => 'required|string|email|max:255|unique:users',
-                                'password' => 'required|string|min:8|confirmed',
-                            ]);
-                            -->
-                            <p>* هذا النموذج سيتم ربطه بـ Laravel بواسطة إضافة CSRF protection ومعالجة التسجيل في RegisterController</p>
-                        </div>
+<!-- صفحة إنشاء حساب -->
+
+<!-- صفحة إنشاء حساب -->
+<section id="register" class="page-content py-8">
+    <div class="page-section bg-brown-50 flex items-center justify-center">
+        <div class="container mx-auto px-4">
+            <div class="auth-form bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-center mb-6">إنشاء حساب جديد</h2>
+
+                {{-- عرض الأخطاء إن وجدت --}}
+                @if ($errors->any())
+                    <div class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
+                @endif
+
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    <!-- اسم المتجر (سوبرماركت) -->
+                    <div class="mb-4">
+                        <label for="SupermarketName" class="block text-gray-700 font-medium mb-2">اسم المتجر</label>
+                        <input type="text" id="SupermarketName" name="SupermarketName" class="form-input w-full px-4 py-2 border rounded" placeholder="أدخل اسم متجرك" required>
+                    </div>
+
+                    <!-- اسم المالك -->
+                    <div class="mb-4">
+                        <label for="username" class="block text-gray-700 font-medium mb-2">اسم المالك</label>
+                        <input type="text" id="username" name="username" class="form-input w-full px-4 py-2 border rounded" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+
+                    <!-- البريد الإلكتروني -->
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 border rounded" placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+
+                    <!-- رقم الجوال -->
+                    <div class="mb-4">
+                        <label for="ContactNumber" class="block text-gray-700 font-medium mb-2">رقم الجوال</label>
+                        <input type="tel" id="ContactNumber" name="ContactNumber" class="form-input w-full px-4 py-2 border rounded" placeholder="05xxxxxxxx" required>
+                    </div>
+
+                    <!-- الموقع -->
+                    <div class="mb-6">
+                        <label for="Location" class="block text-gray-700 font-medium mb-2">الموقع</label>
+                        <input type="text" id="Location" name="Location" class="form-input w-full px-4 py-2 border rounded" placeholder="أدخل الموقع الجغرافي للمتجر" required>
+                    </div>
+
+                    <!-- كلمة المرور -->
+                    <div class="mb-4">
+                        <label for="password" class="block text-gray-700 font-medium mb-2">كلمة المرور</label>
+                        <input type="password" id="password" name="password" class="form-input w-full px-4 py-2 border rounded" placeholder="أدخل كلمة المرور" required>
+                    </div>
+
+                    <!-- تأكيد كلمة المرور -->
+                    <div class="mb-6">
+                        <label for="password_confirmation" class="block text-gray-700 font-medium mb-2">تأكيد كلمة المرور</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-input w-full px-4 py-2 border rounded" placeholder="أعد إدخال كلمة المرور" required>
+                    </div>
+
+                    <!-- اختيار الخطة -->
+                    <div class="mb-6">
+                        <label for="plan" class="block text-gray-700 font-medium mb-2">اختر الخطة</label>
+                        <select id="plan" name="plan" class="form-input w-full px-4 py-2 border rounded">
+                            <option value="basic">الخطة الأساسية - ٢٩٩ ر.س/شهرياً</option>
+                            <option value="pro" selected>الخطة الاحترافية - ٥٩٩ ر.س/شهرياً</option>
+                            <option value="advanced">الخطة المتقدمة - ٩٩٩ ر.س/شهرياً</option>
+                        </select>
+                    </div>
+
+                    <!-- الشروط والأحكام -->
+                    <div class="mb-6 flex items-center">
+                        <input type="checkbox" id="terms" name="terms" class="mt-1 mr-2" required>
+                        <label for="terms" class="text-gray-700">
+                            أوافق على <a href="#" class="text-brown-600 hover:underline">الشروط والأحكام</a> و <a href="#" class="text-brown-600 hover:underline">سياسة الخصوصية</a>
+                        </label>
+                    </div>
+
+                    <!-- زر الإنشاء -->
+                    <button type="submit" class="w-full bg-brown-600 text-white py-3 rounded-lg font-bold hover:bg-brown-700 transition duration-300">
+                        إنشاء الحساب
+                    </button>
+                </form>
+
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">
+                        لديك حساب بالفعل؟
+                        <a href="#login" class="text-brown-600 hover:text-brown-700 font-bold" onclick="changePage('login')">
+                            تسجيل الدخول
+                        </a>
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
-    
+</section>
+
+
     <!-- Footer -->
     <footer class="bg-brown-900 text-white py-10">
         <div class="container mx-auto px-4">

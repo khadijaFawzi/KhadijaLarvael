@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cart_items', function (Blueprint $table) {
+         Schema::create('cart_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cart_id')->constrained('client_carts')->onDelete('cascade');
+            $table->foreignId('cart_id')->constrained('carts')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->foreignId('offer_id')->constrained('offers')->onDelete('cascade');
-            $table->foreignId('supermarket_id')->nullable()->constrained('supermarkets')->onDelete('set null');
-            $table->integer('quantity')->default(1);
-            $table->decimal('price', 8, 2); // السعر المحدد عند الإضافة
+            $table->foreignId('supermarket_id')->constrained('supermarkets')->onDelete('cascade');
+            $table->integer('quantity');
+            $table->decimal('price', 10, 2); // سعر المنتج في السلة
             $table->timestamps();
         });
     }
