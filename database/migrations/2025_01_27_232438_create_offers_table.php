@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('supermarket_id')->constrained('super_markets')->onDelete('cascade')->default(false);
-            $table->foreignId('Product_id')->constrained()->onDelete('cascade')->nullable();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->decimal('discount_percentage')->nullable();

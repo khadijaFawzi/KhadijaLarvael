@@ -14,7 +14,7 @@ class CartItem extends Model
     ];
 
     // علاقة عنصر السلة بالسلة
-    public function cart()
+    public function carts()
     {
         return $this->belongsTo(Carts::class, 'cart_id');
     }
@@ -30,4 +30,12 @@ class CartItem extends Model
     {
         return $this->belongsTo(Supermarket::class);
     }
+
+
+    protected $casts = [
+    'quantity'    => 'integer',
+    'price'       => 'decimal:2',
+    'total_price' => 'decimal:2',
+];
+
 }

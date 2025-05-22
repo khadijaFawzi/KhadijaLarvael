@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class SuperMarket extends Model
 {
     use HasFactory;
-
+    protected $table = 'super_markets';
     protected $fillable = [
         'User_id', 'SupermarketName', 'Location', 'ContactNumber', 'profile_image',
     ];
@@ -44,6 +44,18 @@ class SuperMarket extends Model
     return $this->belongsTo(User::class, 'User_id');
     }
 
-    
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function bankAccounts()
+    {
+        return $this->hasMany(supermarket_bank_accounts::class, 'supermarket_id');
+    }
+public function offers()
+{
+    return $this->hasMany(Offers::class);
+}
 
 }

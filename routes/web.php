@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\SupermarketController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SupermarketBankAccountController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ContactController;
@@ -159,5 +160,28 @@ Route::view('/privacy', 'privacy')->name('privacy');
 
     });
 
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('bank-account/create/{supermarket}', [SupermarketBankAccountController::class, 'create'])->name('bank-account.create');
+    Route::post('bank-account/store', [SupermarketBankAccountController::class, 'store'])->name('bank-account.store');
+    // هذا هو الراوت الصحيح:
+    Route::get('bank-account/inline-edit/{supermarket}/{account}', [SupermarketBankAccountController::class, 'editBankAccount'])->name('bank-account.inlineEdit');
+    Route::put('bank-account/update/{id}', [SupermarketBankAccountController::class, 'update'])->name('bank-account.update');
+    Route::delete('bank-account/destroy/{id}', [SupermarketBankAccountController::class, 'destroy'])->name('bank-account.destroy');
+});
 
-    Route::get('/features', 'FeatureController@index')->name('features');
+
+
+   // Route::get('/features', 'FeatureController@index')->name('features');
+
+
+
+
+
+
+
+
+
+    // مسارات استيراد المنتجات
+Route::get('admin/import-products/{supermarket_id}', [ProductController::class, 'importProductsForm'])->name('import_products_form');
+Route::post('admin/import-products/{supermarket_id}', [ProductController::class, 'importProducts'])->name('import_products');
+Route::get('admin/download-excel-template/{supermarket_id}', [ProductController::class, 'downloadExcelTemplate'])->name('download_excel_template');

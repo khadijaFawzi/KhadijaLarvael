@@ -14,7 +14,7 @@ class SupermarketController extends Controller
     public function index()
     {
         $supermarkets = SuperMarket::with('user:id,name,email') // ربط بيانات المستخدم في حال احتجت
-            ->select('id', 'SupermarketName', 'Location', 'ContactNumber', 'description', 'bank_account', 'profile_image')
+            ->select('id', 'SupermarketName', 'Location', 'ContactNumber', 'description', 'profile_image')
             ->get();
 
         return response()->json([
@@ -22,5 +22,21 @@ class SupermarketController extends Controller
             'supermarkets' => $supermarkets
         ], 200);
     }
+
+    public function offersBySupermarket($id)
+{
+    // تحقق أن السوبرماركت موجود
+    $supermarket = Supermarket::find($id);
+    if (!$supermarket) {
+        return response()->json(['status' => false, 'message' => 'Supermarket not found'], 404);
+    }
+    // جلب العروض التابعة لهذا السوبرماركت فقط (يفترض وجود علاقة offers في المودل)
+    $offers = $supermarket->offers; // لو عندك علاقة Offers
+    // أو
+    // $offers = Offer::where('supermarket_id', $id)->get();
+
+    return response()->json(['status' => true, 'offers' => $offers]);
+}
+
 }
 

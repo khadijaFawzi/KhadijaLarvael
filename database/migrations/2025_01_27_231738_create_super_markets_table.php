@@ -13,15 +13,13 @@ return new class extends Migration
     { 
         Schema::disableForeignKeyConstraints();
         Schema::create('super_markets', function (Blueprint $table) {
-
             $table->id();
             $table->foreignId('User_id')->constrained()->onDelete('cascade');
-            $table->string('SupermarketName');          // كما هو
-            $table->string('Location')->nullable();     // كما هو
-            $table->string('ContactNumber')->nullable(); // كما هو
-            $table->text('description')->nullable();     // من التطبيق
-            $table->string('bank_account')->nullable();  // من التطبيق
-            $table->string('profile_image')->nullable(); // كما هو
+            $table->string('SupermarketName');
+            $table->string('Location')->nullable();
+            $table->string('ContactNumber')->nullable();
+            $table->text('description')->nullable();
+            $table->string('profile_image')->nullable();
             $table->timestamps();
 });
 

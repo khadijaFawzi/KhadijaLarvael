@@ -145,6 +145,117 @@
                         </div>
                     </div>
                     
+        <!-- الحسابات البنكية -->
+        <div class="mt-12">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="bi bi-credit-card-2-back ml-2"></i> الحسابات البنكية
+                </h2>
+            </div>
+
+            <!-- جدول الحسابات البنكية -->
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-700">
+                            <th class="px-4 py-2">اسم البنك</th>
+                            <th class="px-4 py-2">رقم الحساب</th>
+                            <th class="px-4 py-2">الآيبان</th>
+                            <th class="px-4 py-2">صاحب الحساب</th>
+                            <th class="px-4 py-2">العمليات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($superMarket->bankAccounts as $account)
+                        @if(isset($editAccount) && $editAccount->id == $account->id)
+                            <!-- صف التعديل -->
+                            <tr class="bg-yellow-50">
+                                <form action="{{ route('admin.bank-account.update', $account->id) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <td class="px-2 py-2">
+                                        <input type="text" name="bank_name" class="w-full border rounded px-2 py-1" value="{{ old('bank_name', $account->bank_name) }}">
+                                        @error('bank_name')<div class="text-red-500 text-xs">{{ $message }}</div>@enderror
+                                    </td>
+                                    <td class="px-2 py-2">
+                                        <input type="text" name="account_number" class="w-full border rounded px-2 py-1" value="{{ old('account_number', $account->account_number) }}">
+                                        @error('account_number')<div class="text-red-500 text-xs">{{ $message }}</div>@enderror
+                                    </td>
+                                    <td class="px-2 py-2">
+                                        <input type="text" name="iban" class="w-full border rounded px-2 py-1" value="{{ old('iban', $account->iban) }}">
+                                    </td>
+                                    <td class="px-2 py-2">
+                                        <input type="text" name="account_holder_name" class="w-full border rounded px-2 py-1" value="{{ old('account_holder_name', $account->account_holder_name) }}">
+                                    </td>
+                                    <td class="px-2 py-2">
+                                        <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">حفظ</button>
+                                        <a href="{{ route('admin.supermarket.edit', $superMarket->id) }}" class="text-gray-500 ml-2">إلغاء</a>
+                                    </td>
+                                </form>
+                            </tr>
+                        @else
+                            <!-- صف الحساب البنكي العادي -->
+                            <tr class="border-b">
+                                <td class="px-4 py-2">{{ $account->bank_name }}</td>
+                                <td class="px-4 py-2">{{ $account->account_number }}</td>
+                                <td class="px-4 py-2">{{ $account->iban }}</td>
+                                <td class="px-4 py-2">{{ $account->account_holder_name }}</td>
+                                <td class="px-4 py-2">
+                                    <a href="{{ route('admin.bank-account.inlineEdit', [$superMarket->id, $account->id]) }}" class="text-blue-500 hover:underline mr-2">تعديل</a>
+                                    <form action="{{ route('admin.bank-account.destroy', $account->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-500 hover:underline" onclick="return confirm('هل أنت متأكد من الحذف؟')">حذف</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
+                    </tbody>
+                </table>
+                @if($superMarket->bankAccounts->isEmpty())
+                    <div class="text-gray-500 mt-4">لا توجد حسابات بنكية مضافة بعد.</div>
+                @endif
+            </div>
+
+            <!-- فورم إضافة حساب بنكي جديد -->
+            <div class="mt-4 bg-gray-50 p-4 rounded shadow-inner">
+                <h4 class="font-semibold text-gray-800 mb-2"><i class="bi bi-plus-lg"></i> إضافة حساب بنكي جديد</h4>
+                <form action="{{ route('admin.bank-account.store') }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    @csrf
+                    <input type="hidden" name="supermarket_id" value="{{ $superMarket->id }}">
+                    <div>
+                        <label for="bank_name" class="block mb-1">اسم البنك <span class="text-red-500">*</span></label>
+                        <input type="text" name="bank_name" id="bank_name" class="w-full border rounded px-3 py-2" required value="{{ old('bank_name') }}">
+                        @error('bank_name')
+                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="account_number" class="block mb-1">رقم الحساب <span class="text-red-500">*</span></label>
+                        <input type="text" name="account_number" id="account_number" class="w-full border rounded px-3 py-2" required value="{{ old('account_number') }}">
+                        @error('account_number')
+                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="iban" class="block mb-1">الآيبان</label>
+                        <input type="text" name="iban" id="iban" class="w-full border rounded px-3 py-2" value="{{ old('iban') }}">
+                    </div>
+                    <div>
+                        <label for="account_holder_name" class="block mb-1">اسم صاحب الحساب</label>
+                        <input type="text" name="account_holder_name" id="account_holder_name" class="w-full border rounded px-3 py-2" value="{{ old('account_holder_name') }}">
+                    </div>
+                    <div class="md:col-span-2">
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded transition">إضافة</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
                     <!-- زر حفظ التغييرات -->
                     <div class="pt-4 flex justify-center md:justify-end">
                         <button type="submit" class="bg-custom hover:bg-indigo-700 text-black py-2 px-6 rounded-lg transition duration-300">

@@ -10,4 +10,10 @@ class Category extends Model
         'CategoryName',
         'icon',    
     ];
+    // في الموديل Category.php
+public function products()
+{
+    return $this->hasMany(Product::class);
+}
+
 }

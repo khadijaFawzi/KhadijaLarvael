@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('orders', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('supermarket_id')->constrained('supermarkets')->onDelete('cascade');
-            $table->decimal('total_amount', 10, 2);
+            $table->foreignId('supermarket_id')->constrained('super_markets')->onDelete('cascade');
             $table->enum('status', ['pending', 'processing', 'completed', 'cancelled'])->default('pending');
+            $table->decimal('total', 10, 2)->default(0);
+            $table->decimal('delivery_fee', 8, 2)->default(0);
+            $table->enum('payment_status', ['unpaid', 'deposit_uploaded', 'paid', 'rejected'])->default('unpaid');
+            $table->string('deposit_receipt')->nullable();
+            $table->string('delivery_status')->default('pending');
+            $table->string('tracking_code')->nullable();
             $table->timestamps();
         });
     }

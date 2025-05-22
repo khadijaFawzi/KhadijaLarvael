@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SuperMarket;
-
+use App\Models\supermarket_bank_accounts;
 use Illuminate\Support\Facades\Auth;
 use  App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -79,6 +79,13 @@ class ProfileController extends Controller
    // $user->save();
 
     return redirect()->back()->with('success', 'تم تحديث البيانات بنجاح');
+}
+    public function editBankAccount($supermarket_id, $account_id)
+{
+    $user = Auth::user();
+    $superMarket = $user->supermarket;
+    $editAccount = supermarket_bank_accounts::findOrFail($account_id);
+    return view('admin.profile', compact('user', 'superMarket', 'editAccount'));
 }
 
 }

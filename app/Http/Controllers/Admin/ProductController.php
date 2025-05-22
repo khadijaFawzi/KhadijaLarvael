@@ -9,6 +9,10 @@ use App\Models\Offers;
 use App\Models\SuperMarket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -158,4 +162,173 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success', 'تم تعديل المنتج بنجاح!');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    //  public function importProductsForm($supermarket_id)
+    // {
+    //     $supermarket = SuperMarket::find($supermarket_id);
+    //     if (!$supermarket) {
+    //         return redirect()->back()->withErrors(['message' => 'السوبرماركت غير موجود']);
+    //     }
+        
+    //     return view('admin.import_products', compact('supermarket'));
+    // }
+
+    // /**
+    //  * معالجة استيراد المنتجات من ملف إكسل
+    //  */
+    // public function importProducts(Request $request, $supermarket_id)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'excel_file' => 'required|file|mimes:xlsx,xls|max:10240',
+    //     ], [
+    //         'excel_file.required' => 'يرجى اختيار ملف إكسل.',
+    //         'excel_file.file' => 'يجب أن يكون الملف صالحًا.',
+    //         'excel_file.mimes' => 'يجب أن يكون الملف بتنسيق Excel (.xlsx أو .xls).',
+    //         'excel_file.max' => 'حجم الملف يجب أن لا يتجاوز 10 ميجابايت.',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+
+    //     $supermarket = SuperMarket::find($supermarket_id);
+    //     if (!$supermarket) {
+    //         return redirect()->back()->withErrors(['message' => 'السوبرماركت غير موجود']);
+    //     }
+
+    //     try {
+    //         $file = $request->file('excel_file');
+    //         $spreadsheet = IOFactory::load($file->getPathname());
+    //         $worksheet = $spreadsheet->getActiveSheet();
+    //         $rows = $worksheet->toArray();
+            
+    //         // تخطي الصف الأول إذا كان يحتوي على العناوين
+    //         $headers = array_shift($rows);
+            
+    //         // التحقق من وجود الأعمدة المطلوبة
+    //         $requiredColumns = ['product_name', 'price', 'category_id', 'description', 'barcode'];
+    //         $columnIndexes = [];
+            
+    //         foreach ($headers as $index => $header) {
+    //             $header = trim(strtolower($header));
+    //             if (in_array($header, $requiredColumns)) {
+    //                 $columnIndexes[$header] = $index;
+    //             }
+    //         }
+            
+    //         // التحقق من وجود الأعمدة الإلزامية على الأقل
+    //         if (!isset($columnIndexes['product_name']) || !isset($columnIndexes['price']) || !isset($columnIndexes['category_id'])) {
+    //             return redirect()->back()->withErrors(['message' => 'الملف لا يحتوي على الأعمدة المطلوبة الأساسية (اسم المنتج، السعر، معرف الفئة).']);
+    //         }
+            
+    //         $successCount = 0;
+    //         $errorCount = 0;
+    //         $errors = [];
+            
+    //         foreach ($rows as $index => $row) {
+    //             // تخطي الصفوف الفارغة
+    //             if (empty($row[$columnIndexes['product_name']])) {
+    //                 continue;
+    //             }
+                
+    //             try {
+    //                 // إنشاء منتج جديد
+    //                 $product = new Product();
+    //                 $product->product_name = $row[$columnIndexes['product_name']];
+    //                 $product->Price = $row[$columnIndexes['price']];
+    //                 $product->Category_id = $row[$columnIndexes['category_id']];
+    //                 $product->supermarket_id = $supermarket_id;
+                    
+    //                 // تعيين الحقول الاختيارية إذا كانت موجودة
+    //                 if (isset($columnIndexes['description'])) {
+    //                     $product->Description = $row[$columnIndexes['description']] ?? '';
+    //                 }
+                    
+    //                 if (isset($columnIndexes['barcode'])) {
+    //                     $product->barcode = $row[$columnIndexes['barcode']] ?? '';
+    //                 }
+                    
+    //                 // تعيين صورة افتراضية إذا كانت غير موجودة
+    //                 $product->Image = 'default_product.jpg';
+                    
+    //                 // حفظ المنتج
+    //                 $product->save();
+    //                 $successCount++;
+    //             } catch (\Exception $e) {
+    //                 $errorCount++;
+    //                 $errors[] = "خطأ في الصف " . ($index + 2) . ": " . $e->getMessage();
+    //             }
+    //         }
+            
+    //         $message = "تم استيراد {$successCount} منتج بنجاح.";
+    //         if ($errorCount > 0) {
+    //             $message .= " فشل استيراد {$errorCount} منتج.";
+    //         }
+            
+    //         return redirect()->route('show_Product', ['supermarket_id' => $supermarket_id])
+    //             ->with('success', $message)
+    //             ->with('import_errors', $errors);
+                
+    //     } catch (\Exception $e) {
+    //         return redirect()->back()->withErrors(['message' => 'حدث خطأ أثناء معالجة الملف: ' . $e->getMessage()]);
+    //     }
+    // }
+
+    // /**
+    //  * تنزيل قالب إكسل للمنتجات
+    //  */
+    // public function downloadExcelTemplate($supermarket_id)
+    // {
+    //     $supermarket = SuperMarket::find($supermarket_id);
+    //     if (!$supermarket) {
+    //         return redirect()->back()->withErrors(['message' => 'السوبرماركت غير موجود']);
+    //     }
+        
+    //     // إنشاء ملف Excel جديد
+    //     $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+    //     $sheet = $spreadsheet->getActiveSheet();
+        
+    //     // تعيين العناوين
+    //     $sheet->setCellValue('A1', 'product_name');
+    //     $sheet->setCellValue('B1', 'price');
+    //     $sheet->setCellValue('C1', 'category_id');
+    //     $sheet->setCellValue('D1', 'description');
+    //     $sheet->setCellValue('E1', 'barcode');
+        
+    //     // تنسيق العناوين
+    //     $sheet->getStyle('A1:E1')->getFont()->setBold(true);
+        
+    //     // إضافة بيانات الفئات للمساعدة
+    //     $categories = Category::all();
+    //     $row = 3;
+    //     $sheet->setCellValue('G3', 'معرفات الفئات المتاحة:');
+    //     $sheet->getStyle('G3')->getFont()->setBold(true);
+        
+    //     foreach ($categories as $category) {
+    //         $row++;
+    //         $sheet->setCellValue('G' . $row, $category->id . ' - ' . $category->CategoryName);
+    //     }
+        
+    //     // إنشاء ملف Excel
+    //     $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+    //     $fileName = 'products_template_' . $supermarket->name . '.xlsx';
+    //     $tempPath = storage_path('app/public/' . $fileName);
+    //     $writer->save($tempPath);
+        
+    //     return response()->download($tempPath, $fileName)->deleteFileAfterSend(true);
+    // }
+
+
+    
 }
