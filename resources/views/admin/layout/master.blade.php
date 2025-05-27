@@ -15,309 +15,61 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
     <!-- Custom Styles -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #f5f8fa;
-        }
-        .bg-custom {
-            background-color: #d7c3b0;
-        }
-        .bg-custom_hover{
-           background-color:AE(255,139,90,43)
-        }
-      
-        .font {
-            forced-color-adjust: #e6c19a;
-        }
-        
-        .sidebar-item.active {
-            background-color: #f8fafc;
-            border-right: 4px solid #3b82f6;
-        }
-        
-        .sidebar-item:hover {
-            background-color: #f1f5f9;
-        }
-        
-        .sidebar-menu .nav-arrow {
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .sidebar-menu .menu-open .nav-arrow {
-            transform: rotate(90deg);
-        }
-        
-        .sidebar-submenu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
-        }
-        
-        .sidebar-menu .menu-open .sidebar-submenu {
-            max-height: 1000px;
-        }
-        
-        .alert {
-            border-radius: 0.375rem;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .alert-success {
-            background-color: #dcfce7;
-            color: #166534;
-            border: 1px solid #bbf7d0;
-        }
-        
-        .alert-danger {
-            background-color: #fee2e2;
-            color: #b91c1c;
-            border: 1px solid #fecaca;
-        }
-        
-        .card {
-            background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            margin-bottom: 1.5rem;
-        }
-        
-        .card-header {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #e5e7eb;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .card-body {
-            padding: 1.5rem;
-        }
-        
-        .card-footer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid #e5e7eb;
-            display: flex;
-            justify-content: flex-end;
-        }
-        
-        .form-control {
-            display: block;
-            width: 100%;
-            padding: 0.5rem 0.75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #4b5563;
-            background-color: white;
-            background-clip: padding-box;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.375rem;
-            transition: border-color 0.15s ease-in-out;
-        }
-        
-        .form-control:focus {
-            border-color: #93c5fd;
-            outline: 0;
-            box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
-        }
-        
-        .btn {
-            display: inline-block;
-            font-weight: 500;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            user-select: none;
-            border: 1px solid transparent;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: 0.375rem;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            color: white;
-            background-color: #3b82f6;
-            border-color: #3b82f6;
-        }
-        
-        .btn-primary:hover {
-            background-color: #2563eb;
-            border-color: #2563eb;
-        }
-        
-        .btn-danger {
-            color: white;
-            background-color: #ef4444;
-            border-color: #ef4444;
-        }
-        
-        .btn-danger:hover {
-            background-color: #dc2626;
-            border-color: #dc2626;
-        }
-        
-        .btn-success {
-            color: white;
-            background-color: #10b981;
-            border-color: #10b981;
-        }
-        
-        .btn-success:hover {
-            background-color: #059669;
-            border-color: #059669;
-        }
-        
-        .btn-warning {
-            color: #1f2937;
-            background-color: #fbbf24;
-            border-color: #fbbf24;
-        }
-        
-        .btn-warning:hover {
-            background-color: #f59e0b;
-            border-color: #f59e0b;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-        }
-        
-        table th, table td {
-            padding: 0.75rem;
-            vertical-align: middle;
-            border-top: 1px solid #e5e7eb;
-            text-align: right;
-        }
-        
-        table thead th {
-            vertical-align: bottom;
-            border-bottom: 2px solid #e5e7eb;
-            background-color: #f9fafb;
-            color: #4b5563;
-            font-weight: 600;
-        }
-        
-        table tbody tr:hover {
-            background-color: #f9fafb;
-        }
-        
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: rgba(249, 250, 251, 0.5);
-        }
-        
-        .table-bordered {
-            border: 1px solid #e5e7eb;
-        }
-        
-        .table-bordered th, .table-bordered td {
-            border: 1px solid #e5e7eb;
-        }
-        
-        /* Dashboard Styles */
-        .stat-card {
-            transition: all 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-        
-        /* Timeline for recent activities */
-        .timeline {
-            position: relative;
-            padding-right: 2rem;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 10px;
-            width: 2px;
-            background-color: #e5e7eb;
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-bottom: 1.5rem;
-        }
-        
-        .timeline-marker {
-            position: absolute;
-            top: 0;
-            right: -2rem;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 2px solid #3b82f6;
-            background-color: white;
-            z-index: 10;
-        }
-        
-        .timeline-content {
-            padding-right: 0.5rem;
-        }
-        
-        /* Product Card */
-        .product-card {
-            transition: all 0.3s ease-in-out;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        
-        .product-img {
-            height: 150px;
-            width: 100%;
-            object-fit: cover;
-            border-top-right-radius: 0.5rem;
-            border-top-left-radius: 0.5rem;
-        }
-        
-        /* Animation for alerts */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .alert {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        /* Responsive tweaks */
-        @media (max-width: 768px) {
-            .stat-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .order-history, .product-list {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+    body {
+        font-family: 'Cairo', sans-serif;
+        background-color: #f5f8fa;
+    }
+    /* اللون الأساسي للوحة التحكم */
+    .bg-custom {
+        background-color: #5c8076 !important; /* fromARGB(255, 92,128,118) */
+    }
+    /* هوفر أو تدرجات */
+    .bg-custom_hover, .hover\:bg-custom_hover:hover {
+        background-color: #45665c !important; /* لون أغمق قليلاً للهوفر */
+    }
+    /* أزرار رئيسية */
+    .btn-primary, .btn-primary:focus {
+        color: #fff;
+        background-color: #5c8076;
+        border-color: #5c8076;
+    }
+    .btn-primary:hover {
+        background-color: #45665c;
+        border-color: #45665c;
+    }
+    /* لون الخط الرئيسي في الـ font */
+    .font, .font-semibold {
+        color: #5c8076 !important;
+    }
+    /* خلفية الأيقونة أو العناصر المميزة */
+    .stat-icon {
+        background-color: #5c8076 !important;
+        color: #fff !important;
+    }
+    /* العناصر الجانبية عند التفعيل */
+    .sidebar-item.active {
+        background-color: #e8f2ef !important;
+        border-right: 4px solid #5c8076 !important;
+    }
+    /* هوفر الشريط الجانبي */
+    .sidebar-item:hover {
+        background-color: #e8f2ef !important;
+    }
+    /* القائمة المنسدلة (الساب مينيو) */
+    .sidebar-submenu li a:hover {
+        background-color: #e8f2ef !important;
+        color: #5c8076 !important;
+    }
+    /* الفوتر */
+    footer.bg-custom {
+        background-color: #5c8076 !important;
+        color: #fff !important;
+    }
+    /* أي عنصر تحتاجه بنفس اللون أضف له الكلاس bg-custom */
+</style>
+
 
     {{-- يمكن إضافة مزيد من الأنماط الخاصة بالصفحات الفرعية --}}
     @yield('styles')
@@ -328,11 +80,11 @@
         <div id="sidebar" class="bg-white w-64 fixed inset-y-0 z-10 shadow-md transition-all duration-300 transform translate-x-0 md:relative md:translate-x-0">
             <div class="flex flex-col h-full">
                 <!-- Sidebar Header -->
-                <div class="bg-custom px-4 py-6 border-b border-gray-200 bg-gradient-to-l from-text-white">
-                   
-                        <h1 class="text-xl  font-bold">لوحة تحكم السوبر ماركت</h1>
-                    
-                </div>
+             <div class="px-4 py-6 border-b border-gray-200" style="background-color: #5c8076;">
+    <h1 class="text-xl font-bold text-white">لوحة تحكم السوبر ماركت</h1>
+</div>
+
+
                 
                 <!-- Sidebar Content -->
                 <div class="flex-1 overflow-y-auto">
@@ -435,38 +187,90 @@
                                     </li>
                                 </ul>
                             </li>
-                            
-                            <!-- Orders Management -->
-                            <li class="sidebar-item menu-open mt-2">
-                                <a href="#" class="flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-md">
-                                    <div class="flex items-center">
-                                        <i class="bi bi-cart3 ml-3 text-xl"></i>
-                                        <span>ادارة الطلبات</span>
-                                    </div>
-                                    <i class="nav-arrow bi bi-chevron-left transition-transform"></i>
-                                </a>
-                                <ul class="sidebar-submenu pr-8 mt-1 space-y-1">
-                                    <li>
-                                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md">
-                                            <i class="bi bi-circle ml-3 text-xs"></i>
-                                            <span>طلبات جديدة</span>
-                                            <span class="bg-red-500 text-white text-xs rounded-full px-2 py-1 mr-2">15</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md">
-                                            <i class="bi bi-circle ml-3 text-xs"></i>
-                                            <span>طلبات قيد التنفيذ</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md">
-                                            <i class="bi bi-circle ml-3 text-xs"></i>
-                                            <span>عرض الطلبات</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <!-- Food Baskets Management -->
+@php
+    // تأكد من توفر معرف السوبرماركت
+    $supermarketId = $supermarket->id ?? (request()->get('supermarket_id') ?? request()->route('supermarket_id'));
+@endphp
+
+<li class="sidebar-item menu-open mt-2">
+    <a href="#" class="flex items-center justify-between px-4 py-3 text-gray-800 hover:bg-gray-100 rounded-xl transition">
+        <div class="flex items-center gap-3">
+            <i class="bi bi-basket text-xl text-green-600"></i>
+            <span class="font-semibold text-base">السلات الغذائية</span>
+        </div>
+        <i class="nav-arrow bi bi-chevron-left transition-transform"></i>
+    </a>
+    <ul class="sidebar-submenu pr-8 mt-1 space-y-1">
+        <li>
+            <a href="{{ route('supermarket.food_baskets.create', ['supermarket' => $supermarketId]) }}"
+               class="flex items-center px-4 py-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-md">
+                <i class="bi bi-circle ml-3 text-xs"></i>
+                <span>إضافة سلة جديدة</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('supermarket.food_baskets.index', ['supermarket' => $supermarketId]) }}"
+               class="flex items-center px-4 py-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-md">
+                <i class="bi bi-circle ml-3 text-xs"></i>
+                <span>عرض كل السلات</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<!-- Orders Management -->
+<li class="sidebar-item menu-open mt-2">
+    <a href="#" class="flex items-center justify-between px-4 py-3 text-gray-800 hover:bg-gray-100 rounded-xl transition">
+        <div class="flex items-center gap-3">
+            <i class="bi bi-cart3 text-xl text-blue-600"></i>
+            <span class="font-semibold text-base">إدارة الطلبات</span>
+        </div>
+        <i class="nav-arrow bi bi-chevron-left transition-transform"></i>
+    </a>
+
+    <ul class="sidebar-submenu pr-8 mt-1 space-y-1">
+        <li>
+            <a href="{{ route('supermarket.orders.index', ['supermarket_id' => $supermarketId]) }}"
+               class="flex items-center px-4 py-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md transition">
+                <i class="bi bi-list-ul text-xs text-blue-500 ml-3"></i>
+                <span>كل الطلبات</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('supermarket.orders.index', ['supermarket_id' => $supermarketId, 'status' => 'pending']) }}"
+               class="flex items-center px-4 py-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md transition">
+                <i class="bi bi-hourglass-split text-xs text-blue-500 ml-3"></i>
+                <span>طلبات جديدة</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('supermarket.orders.index', ['supermarket_id' => $supermarketId, 'status' => 'processing']) }}"
+               class="flex items-center px-4 py-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md transition">
+                <i class="bi bi-arrow-repeat text-xs text-blue-500 ml-3"></i>
+                <span>قيد المعالجة</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('supermarket.orders.index', ['supermarket_id' => $supermarketId, 'status' => 'completed']) }}"
+               class="flex items-center px-4 py-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md transition">
+                <i class="bi bi-check2-circle text-xs text-blue-500 ml-3"></i>
+                <span>مكتملة</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('supermarket.orders.index', ['supermarket_id' => $supermarketId, 'status' => 'cancelled']) }}"
+               class="flex items-center px-4 py-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md transition">
+                <i class="bi bi-x-circle text-xs text-blue-500 ml-3"></i>
+                <span>ملغية</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+
+
+
+
                             
                             <!-- Customers Management -->
                             <li class="sidebar-item mt-2">

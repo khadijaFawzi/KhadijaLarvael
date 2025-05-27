@@ -7,50 +7,54 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 class ProductController extends Controller
 {
-    public function getAllProducts()
-    {
-        $products = Product::with(['category', 'supermarket'])->get()->map(function ($product) {
+  public function getAllProducts()
+{
+    $products = Product::with(['category', 'supermarket'])->get()->map(function ($product) {
+        return [
+            'id'            => $product->id,
+            'name'          => $product->product_name,
+            'price'         => $product->Price,
+            'image_url'     => asset('products/' . $product->Image),
+            'category_id'   => $product->Category_id, // أضف هذا
+            'supermarket_id'=> $product->supermarket_id, // أضف هذا
+            'category'      => $product->category->CategoryName ?? 'غير محددة',
+            'supermarket'   => $product->supermarket->SupermarketName ?? 'غير معروف',
+            'barcode'       => $product->barcode,
+            'description'   => $product->Description,
+        ];
+    });
+
+    return response()->json([
+        'status'   => true,
+        'products' => $products,
+    ]);
+}
+
+public function getProductsBySupermarket($supermarketId)
+{
+    $products = Product::with(['category', 'supermarket'])
+        ->where('supermarket_id', $supermarketId)
+        ->get()
+        ->map(function ($product) {
             return [
                 'id'            => $product->id,
                 'name'          => $product->product_name,
                 'price'         => $product->Price,
                 'image_url'     => asset('products/' . $product->Image),
+                'category_id'   => $product->Category_id,
+                'supermarket_id'=> $product->supermarket_id,
                 'category'      => $product->category->CategoryName ?? 'غير محددة',
-                'supermarket'   => $product->supermarket->name ?? 'غير معروف',
+                'supermarket'   => $product->supermarket->SupermarketName ?? 'غير معروف',
                 'barcode'       => $product->barcode,
                 'description'   => $product->Description,
             ];
         });
 
-        return response()->json([
-            'status'   => true,
-            'products' => $products,
-        ]);
-    }
-
- public function getProductsBySupermarket($supermarketId)
-    {
-        $products = Product::with(['category', 'supermarket'])
-            ->where('supermarket_id', $supermarketId)
-            ->get()
-            ->map(function ($product) {
-                return [
-                    'id'            => $product->id,
-                    'name'          => $product->product_name,
-                    'price'         => $product->Price,
-                    'image_url'     => asset('products/' . $product->Image),
-                    'category'      => $product->category->CategoryName ?? 'غير محددة',
-                    'supermarket'   => $product->supermarket->name ?? 'غير معروف',
-                    'barcode'       => $product->barcode,
-                    'description'   => $product->Description,
-                ];
-            });
-
-        return response()->json([
-            'status'   => true,
-            'products' => $products,
-        ]);
-    }
+    return response()->json([
+        'status'   => true,
+        'products' => $products,
+    ]);
+}
 public function comparePricesByBarcode($barcode)
 {
     $items = Product::with('supermarket')
@@ -88,4 +92,45 @@ public function comparePricesByBarcode($barcode)
         'price_offers'   => $offers,
     ]);
 }
+
+public function getProductsBySupermarketAndCategory($supermarketId, $categoryId)
+{
+    $products = \App\Models\Product::with(['category', 'supermarket'])
+        ->where('supermarket_id', $supermarketId)
+        ->where('Category_id', $categoryId)
+        ->get()
+        ->map(function ($product) {
+            return [
+                'id'            => $product->id,
+                'name'          => $product->product_name,
+                'price'         => $product->Price,
+                'image_url'     => asset('products/' . $product->Image),
+                'category_id'   => $product->Category_id,
+                'supermarket_id'=> $product->supermarket_id,
+                'category'      => $product->category->CategoryName ?? 'غير محددة',
+                'supermarket'   => $product->supermarket->SupermarketName ?? 'غير معروف',
+                'barcode'       => $product->barcode,
+                'description'   => $product->Description,
+            ];
+        });
+
+    return response()->json([
+        'status'   => true,
+        'products' => $products,
+    ]);
+}
+ // ProductController.php
+public function similar($id)
+{
+    $product = Product::findOrFail($id);
+
+    // جلب منتجات من نفس الفئة مع استثناء المنتج الحالي
+    $similar = Product::where('Category_id', $product->Category_id)
+        ->where('id', '!=', $product->id)
+        ->limit(8) // عدد المنتجات المشابهة
+        ->get();
+
+    return response()->json(['status' => true, 'products' => $similar]);
+}
+
 }

@@ -11,27 +11,35 @@ class OfferController extends Controller
 {
  
   
-
 public function index()
 {
-    // نجلب العروض والعلاقة كما هي
+    // نجلب العروض مع العلاقات
     $offers = Offers::with('product','supermarket')->get();
 
     $data = $offers->map(function($offer) {
-        // جلب الاسم من جدول السوبرماركت فقط عبر الـ id
         $SupermarketName = SuperMarket::where('id', $offer->supermarket_id)
                                  ->value('SupermarketName');
-  
+        $originalPrice = $offer->product?->Price; // السعر الأصلي من المنتج
+
+        // حساب السعر بعد الخصم
+        $discountedPrice = null;
+        if ($originalPrice && $offer->discount_percentage) {
+            $discountedPrice = $originalPrice - ($originalPrice * ($offer->discount_percentage / 100));
+            $discountedPrice = round($discountedPrice, 2);
+        }
+
         return [
             'id'                  => $offer->id,
             'supermarket_id'      => $offer->supermarket_id,
-            'SupermarketName'    => $SupermarketName,            // الاسم هنا
+            'SupermarketName'     => $SupermarketName,
             'product_id'          => $offer->product_id,
             'product_name'        => $offer->product?->product_name,
-            'Image'       => $offer->product?->Image,
+            'Image'               => $offer->product?->Image,
             'start_date'          => optional($offer->start_date)->toDateString(),
             'end_date'            => optional($offer->end_date)->toDateString(),
             'discount_percentage' => (string)$offer->discount_percentage,
+            'original_price'      => $originalPrice,
+            'discounted_price'    => $discountedPrice,
             'Description'         => $offer->Description,
             'offer_image'         => $offer->image,
             'is_verified'         => (int)$offer->is_verified,
@@ -40,6 +48,7 @@ public function index()
 
     return response()->json($data);
 }
+
 
 
     // POST /api/offers
@@ -105,4 +114,47 @@ public function index()
         Offers::findOrFail($id)->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function offersBySupermarket($id)
+{
+    // جلب عروض السوبرماركت المحدد مع العلاقات
+    $offers = Offers::with('product', 'supermarket')
+        ->where('supermarket_id', $id)
+        ->get();
+
+    $data = $offers->map(function($offer) {
+        $SupermarketName = $offer->supermarket?->SupermarketName;
+        $originalPrice = $offer->product?->Price;
+
+        $discountedPrice = null;
+        if ($originalPrice && $offer->discount_percentage) {
+            $discountedPrice = $originalPrice - ($originalPrice * ($offer->discount_percentage / 100));
+            $discountedPrice = round($discountedPrice, 2);
+        }
+
+        return [
+            'id'                  => $offer->id,
+            'supermarket_id'      => $offer->supermarket_id,
+            'supermarket_name'    => $SupermarketName,
+            'product_id'          => $offer->product_id,
+            'product_name'        => $offer->product?->product_name,
+            'product_image'       => $offer->product?->Image,
+            'start_date'          => optional($offer->start_date)->toDateString(),
+            'end_date'            => optional($offer->end_date)->toDateString(),
+            'discount_percentage' => (string)$offer->discount_percentage,
+            'original_price'      => $originalPrice,
+            'discounted_price'    => $discountedPrice,
+            'description'         => $offer->Description,
+            'offer_image'         => $offer->image,
+            'is_verified'         => (int)$offer->is_verified,
+        ];
+    });
+
+    return response()->json([
+        'status' => true,
+        'offers' => $data,
+    ]);
+}
+
+
 }

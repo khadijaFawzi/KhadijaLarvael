@@ -16,7 +16,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.categories.add', compact('categories'));
+        return view('general-management.categories', compact('categories'));
     }
 
     /**
@@ -47,7 +47,7 @@ class CategoriesController extends Controller
 
         // 4. Redirect back with success message
         return redirect()
-            ->route('admin.categories.index')
+            ->route('general-management.categories')
             ->with('success', 'تمت إضافة الفئة بنجاح');
     }
 
@@ -56,7 +56,7 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', compact('category'));
+        return view('general-management.categories', compact('category'));
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoriesController extends Controller
         $category->save();
 
         return redirect()
-            ->route('admin.categories.index')
+            ->route('general-management.categories')
             ->with('success', 'تم تحديث الفئة بنجاح');
     }
 
@@ -100,7 +100,7 @@ class CategoriesController extends Controller
         $category->delete();
 
         return redirect()
-            ->route('admin.categories.index')
+            ->route('general-management.categories')
             ->with('success', 'تم حذف الفئة بنجاح');
     }
 }

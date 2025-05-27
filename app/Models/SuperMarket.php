@@ -44,10 +44,11 @@ class SuperMarket extends Model
     return $this->belongsTo(User::class, 'User_id');
     }
 
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
+   public function orders()
+{
+    return $this->hasMany(Order::class, 'supermarket_id'); // اسم العمود الصحيح
+}
+
 
     public function bankAccounts()
     {
@@ -57,5 +58,13 @@ public function offers()
 {
     return $this->hasMany(Offers::class);
 }
+public function category() {
+    return $this->belongsTo(Category::class, 'Category_id');
+}
+public function foodBaskets()
+{
+    return $this->hasMany(FoodBasket::class, 'supermarket_id');
+}
+
 
 }

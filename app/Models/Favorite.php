@@ -9,7 +9,12 @@ class Favorite extends Model
 {
     use HasFactory;
    
-    protected $fillable = ['user_id','product_id'];
+    protected $fillable = ['user_id', 'favoritable_id', 'favoritable_type','SupermarketName'];
+
+    public function favoritable()
+    {
+        return $this->morphTo();
+    }
 
     public function user()
     {

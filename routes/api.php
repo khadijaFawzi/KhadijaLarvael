@@ -5,15 +5,17 @@ use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\Customer\OfferController;
 //use App\Http\Controllers\Api\SupermarketController;
-//use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\Customer\ProductReviewController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\Customer\ProductController;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Api\Customer\AuthController;
 use App\Http\Controllers\Api\Customer\SuperMarketController;
+use App\Http\Controllers\Api\Customer\CommentController;
+use App\Http\Controllers\Api\Customer\CommentLikeController;
 use App\Http\Controllers\Api\Customer\OrderController;
 use App\Http\Controllers\Api\Customer\SupermarketBankAccountController;
-
+use App\Http\Controllers\Api\Customer\FoodBasketController;
 use App\Http\Controllers\Api\Customer\FavoriteController;
 use App\Http\Controllers\Api\Customer\CartController;
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
@@ -82,10 +84,13 @@ Route::prefix('customer')->group(function () {
 Route::get('categories', [CategoryController::class, 'index']);
 Route::get('categories/{id}/products', [CategoryController::class, 'productsByCategory']);
 
+Route::get('/supermarkets/{id}/categories', [CategoryController::class, 'categoriesBySupermarket']);
 
 
-
-
+Route::get(
+    '/supermarkets/{supermarketId}/categories/{categoryId}/products',
+    [ProductController::class, 'getProductsBySupermarketAndCategory']
+);
 
 
 
@@ -96,12 +101,11 @@ Route::get('/customer/products', [ProductController::class, 'getAllProducts']);
 
 Route::prefix('customer')->group(function () {
     Route::get('products', [ProductController::class, 'getAllProducts']);
-    Route::get('supermarkets/{id}/products', [ProductController::class, 'getProductsBySupermarket']);
-    // ... أي routes أخرى
+  
 });
 
+Route::get('customer/supermarkets/{supermarketId}/products', [ProductController::class, 'getProductsBySupermarket']);
 
-Route::get('customer/supermarkets/{id}/products', [SupermarketController::class, 'products']);
 Route::get('categories/{id}/products', [CategoryController::class, 'productsByCategory']);
 Route::get('customer/supermarkets/{id}', [SupermarketController::class, 'show']);
 
@@ -112,17 +116,22 @@ Route::prefix('customer')->group(function () {
  
     Route::get('products/barcode/{barcode}/compare', 
                 [ProductController::class, 'comparePricesByBarcode']);
+
+    Route::get('/products/{id}/similar', [ProductController::class, 'similar']);
+
 });
 
 
 
 
 
+Route::get('supermarkets/{supermarket}/food-baskets', [FoodBasketController::class, 'index']);
+Route::get('/food-baskets', [FoodBasketController::class, 'all'])->name('food_baskets.all');
 
 
 Route::apiResource('/customer/offers', OfferController::class);
 
-
+//Route::apiResource('/customer/offers/{id}', OfferController::class);
 
 
 Route::middleware('auth:sanctum')
@@ -150,12 +159,12 @@ Route::middleware('auth:sanctum')
 Route::any('customer/cart/clear', [CartController::class, 'clear']);
 
 
-Route::middleware('auth:sanctum')->group(function(){
-  Route::get   ('favorites',             [FavoriteController::class,'index']);
-  Route::post  ('favorites',             [FavoriteController::class,'store']);
-  Route::delete('favorites/{product_id}',[FavoriteController::class,'destroy']);
-});
 
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get   ('favorites', [FavoriteController::class, 'index']);
+    Route::post  ('favorites', [FavoriteController::class, 'store']);
+    Route::delete('favorites', [FavoriteController::class, 'destroy']); 
+});
 
 
 
@@ -176,3 +185,43 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/orders', [OrderController::class, 'createOrder']);
 });
 Route::put('/orders/{order}/cancel', [OrderController::class, 'cancelOrder']);
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('/comments', [CommentController::class, 'index']);
+// Route::middleware('auth:sanctum')->post('/comments', [CommentController::class, 'store']);
+
+// Route::delete('/comments/{id}', [CommentController::class, 'destroy']);
+// Route::post('/comments', [CommentController::class, 'store']);
+// Route::put('/comments/{id}', [CommentController::class, 'update']);
+// Route::get('/comments/{id}/likes', [CommentLikeController::class, 'likesCount']);
+// Route::post('/comments/{id}/like', [CommentLikeController::class, 'toggleLike']);
+// Route::delete('/comments/{id}', [CommentController::class, 'destroy']);
+// Route::get('/comments', [CommentController::class, 'index']);
+
+Route::post('/comments', [CommentController::class, 'store']);
+Route::get('/comments', [CommentController::class, 'index']);
+Route::delete('/comments/{id}', [CommentController::class, 'destroy']);
+
+// في ملف routes/api.php
+Route::get('/customer/comments/{id}/likes', [App\Http\Controllers\Api\Customer\CommentLikeController::class, 'likesCount']);
+Route::post('/customer/comments/{id}/like', [App\Http\Controllers\Api\Customer\CommentLikeController::class, 'toggleLike']);
+
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('products/{product}/reviews', [ProductReviewController::class, 'store']);
+    Route::get('products/{product}/reviews', [ProductReviewController::class, 'index']);
+    Route::get('products/{product}/reviews/count', function (App\Models\Product $product) {
+    return ['count' => $product->reviews()->count()];
+});
+
+});
+ 

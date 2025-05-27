@@ -56,8 +56,32 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class, 'Category_id');
     }
-    public function orderDetails()
-    {
-        return $this->hasMany(OrderDetail::class);
-    }
+  
+
+
+    
+public function favorites()
+{
+    return $this->morphMany(Favorite::class, 'favoritable');
 }
+public function reviews()
+{
+    return $this->hasMany(ProductReview::class);
+}
+
+public function averageRating()
+{
+    return $this->reviews()->avg('rating');
+}
+
+
+
+public function orderDetails()
+{
+    return $this->hasMany(\App\Models\OrderDetail::class, 'product_id');
+}
+
+
+}
+
+

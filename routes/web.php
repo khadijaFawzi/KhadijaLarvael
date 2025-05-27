@@ -5,11 +5,13 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\SupermarketController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\FoodBasketController;
 use App\Http\Controllers\Admin\SupermarketBankAccountController;
+use App\Http\Controllers\Admin\SupermarketOrderWebController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\SupermarketController as ControllersSupermarketController;
+use App\Http\Controllers\GeneralManagement\ReportsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -42,8 +44,8 @@ Route::post('/supermarket/store', [SupermarketController::class, 'store'])->name
 // ----------------EndSupermarketController Route
 
 
-Route::resource('admin/categories', CategoriesController::class)
-     ->names(['index'=>'admin.categories.index', 'store'=>'admin.categories.store', /* … */]);
+// Route::resource('admin/categories', CategoriesController::class)
+//      ->names(['index'=>'admin.categories.index', 'store'=>'admin.categories.store', /* … */]);
 
 
 
@@ -54,6 +56,7 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
 Route::post('/register', [AuthController::class, 'Register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 
 Route::get('/select_type_of_user', [AuthController::class, 'select_type_of_user']);
@@ -80,6 +83,14 @@ Route::get('/search_product', [ProductController::class, 'searchProduct'])->name
 //-------------------End-- Product Route
 
 
+Route::get('/supermarket/{supermarket}/food-baskets', [FoodBasketController::class, 'index'])->name('supermarket.food_baskets.index');
+
+Route::get('/supermarket/{supermarket}/food-baskets/create', [FoodBasketController::class, 'create'])->name('supermarket.food_baskets.create');
+Route::post('/supermarket/{supermarket}/food-baskets', [FoodBasketController::class, 'store'])->name('supermarket.food_baskets.store');
+Route::get('/supermarket/{supermarket}/food-baskets/{foodBasket}', [FoodBasketController::class, 'show'])->name('supermarket.food_baskets.show');
+Route::get('/supermarket/{supermarket}/food-baskets/{foodBasket}/edit', [FoodBasketController::class, 'edit'])->name('supermarket.food_baskets.edit');
+Route::put('/supermarket/{supermarket}/food-baskets/{foodBasket}', [FoodBasketController::class, 'update'])->name('supermarket.food_baskets.update');
+Route::delete('/supermarket/{supermarket}/food-baskets/{foodBasket}', [FoodBasketController::class, 'destroy'])->name('supermarket.food_baskets.destroy');
 
 
 
@@ -114,8 +125,10 @@ Route::post('/update_ai_offer/{supermarket_id}/{id}', [OfferController::class, '
 
 
 Route::get('/view_Setting', [AdminController::class, 'view_Setting']);
-Route::get('/view_order', [AdminController::class, 'view_order']);
-Route::get('/orders', [AdminController::class, 'orders']);
+
+
+// Route::get('/view_order', [AdminController::class, 'view_order']);
+// Route::get('/orders', [AdminController::class, 'orders']);
 
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
@@ -171,7 +184,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
 
 
-   // Route::get('/features', 'FeatureController@index')->name('features');
+  
 
 
 
@@ -185,3 +198,61 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 Route::get('admin/import-products/{supermarket_id}', [ProductController::class, 'importProductsForm'])->name('import_products_form');
 Route::post('admin/import-products/{supermarket_id}', [ProductController::class, 'importProducts'])->name('import_products');
 Route::get('admin/download-excel-template/{supermarket_id}', [ProductController::class, 'downloadExcelTemplate'])->name('download_excel_template');
+
+
+
+Route::middleware(['auth',])
+     ->prefix('supermarket/{supermarket_id}')
+     ->name('supermarket.')
+     ->group(function(){
+         Route::get('orders',                     [SupermarketOrderWebController::class,'index'])->name('orders.index');
+         Route::get('orders/{orderId}',           [SupermarketOrderWebController::class,'show'])->name('orders.show');
+         Route::patch('orders/{orderId}/payment', [SupermarketOrderWebController::class,'updatePaymentStatus'])->name('orders.payment');
+         Route::patch('orders/{orderId}',         [SupermarketOrderWebController::class,'updateOrderStatus'])->name('orders.update');
+     });
+
+
+ Route::get('/features', 'FeatureController@index')->name('features');
+
+
+
+
+
+
+
+
+
+
+
+
+
+   Route::get('/admin/dashboard', [App\Http\Controllers\AdminDashboardController::class, 'index'])
+    ->name('general-management.dashboard')
+   
+;// Dashboard
+Route::get('/general-management/dashboard', [App\Http\Controllers\AdminDashboardController::class, 'index'])->name('general_management.dashboard');
+
+// Categories Management
+
+
+Route::prefix('general-management/reports')->name('general_management.reports.')->group(function () {
+    Route::get('/users', [ReportsController::class, 'users'])->name('users');
+    Route::get('/orders', [ReportsController::class, 'orders'])->name('orders');
+    Route::get('/top-products', [ReportsController::class, 'topProducts'])->name('top_products');
+    Route::get('/top-rated-products', [ReportsController::class, 'topRatedProducts'])->name('top_rated_products');
+});
+// Logout (بناءً على نظامك، قد تحتاج جعله POST وليس GET)
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+// web.php
+Route::resource('general-management/categories', CategoriesController::class)
+    ->names([
+        'index'   => 'general_management.categories.index',
+        'create'  => 'general_management.categories.create',
+        'store'   => 'general_management.categories.store',
+        'show'    => 'general_management.categories.show',
+        'edit'    => 'general_management.categories.edit',
+        'update'  => 'general_management.categories.update',
+        'destroy' => 'general_management.categories.destroy',
+    ]);

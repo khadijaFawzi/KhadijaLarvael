@@ -77,10 +77,12 @@ class AuthController extends Controller
             $request->session()->regenerate();
             
             $user = FacadesAuth::user(); // جلب المستخدم المسجل
-
+         
             // التحقق مما إذا كان المستخدم هو سوبرماركت
             $supermarket = SuperMarket::where('User_id', $user->id)->first();
-            
+             if ($user->role_id == 1) {
+                return redirect()->route('general_management.dashboard');
+            }
             if ($supermarket) {
                 return redirect()->route('Dashborad', ['id' => $supermarket->id]);
             }

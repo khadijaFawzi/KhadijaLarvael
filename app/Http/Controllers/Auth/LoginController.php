@@ -28,7 +28,9 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // جلب المستخدم المسجل
             $user = Auth::user();
-
+            if ($user->role_id == 1) {
+                return redirect()->route('general_management.dashboard');
+            }
             // التحقق مما إذا كان المستخدم مرتبطًا بسوبرماركت
             $supermarket = SuperMarket::where('User_id', $user->id)->first();
 

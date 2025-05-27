@@ -21,11 +21,11 @@
         
         /* تعريف الخطوط والألوان الأساسية */
         :root {
-            --primary-color: #b38867; /* تغيير من اللون الأخضر إلى البني الفاتح */
-            --secondary-color: #e6c19a; /* تغيير اللون الثانوي */
-            --dark-color: #5d4037; /* بني داكن للنصوص */
-            --light-color: #f0e9e2; /* لون فاتح للخلفيات */
-            --success-color: #8d6e63; /* بني أخف للنجاح */
+            --primary-color: #5C8076; /* تغيير اللون إلى الأخضر المطلوب */
+            --secondary-color: #5C8076; /* تغيير اللون الثانوي */
+            --dark-color:rgb(255, 255, 255); /* تغيير اللون الداكن للنصوص */
+            --light-color: white; /* تغيير لون الخلفية إلى أبيض */
+            --success-color: #5C8076; /* تغيير لون النجاح */
             --danger-color: #c62828;
             --color:white /* أحمر غامق للتنبيهات */
         }
@@ -33,7 +33,7 @@
         body {
             font-family: 'Tajawal', sans-serif;
             scroll-behavior: smooth;
-            background-color: var(--light-color);
+            background-color: white;
         }
         
         /* تخصيص الأقسام */
@@ -60,7 +60,7 @@
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(133, 100, 69, 0.1);
+            box-shadow: 0 15px 30px rgba(92, 128, 118, 0.1);
         }
         
         /* تنسيق لشريط التنقل العلوي */
@@ -97,9 +97,9 @@
         }
         
         .cta-button:hover {
-            background-color: #9c7356; /* بني أغمق قليلاً للتأثير */
+            background-color: #4c6b64; /* لون أغمق قليلاً للتأثير */
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(133, 100, 69, 0.2);
+            box-shadow: 0 10px 20px rgba(92, 128, 118, 0.2);
         }
         
         /* تنسيق جدول الأسعار */
@@ -111,7 +111,7 @@
         
         .pricing-table:hover {
             transform: scale(1.03);
-            box-shadow: 0 20px 40px rgba(133, 100, 69, 0.15);
+            box-shadow: 0 20px 40px rgba(92, 128, 118, 0.15);
         }
         
         .popular-plan {
@@ -124,7 +124,7 @@
             top: 0;
             right: 2rem;
             background-color: var(--secondary-color);
-            color: var(--dark-color);
+            color: white;
             padding: 0.5rem 1.5rem;
             border-radius: 0 0 10px 10px;
             font-weight: bold;
@@ -137,7 +137,7 @@
             background-color: white;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(133, 100, 69, 0.1);
+            box-shadow: 0 10px 30px rgba(92, 128, 118, 0.1);
         }
         
         .form-input {
@@ -165,72 +165,72 @@
             display: block;
         }
 
-        /* ألوان Tailwind CSS المخصصة للبني */
-        .bg-brown-50 { background-color: #f8f5f2; }
-        .bg-brown-100 { background-color: #f0e9e2; }
-        .bg-brown-200 { background-color: #e6d9cc; }
-        .bg-brown-300 { background-color: #d7c3b0; }
-        .bg-brown-400 { background-color: #c5aa93; }
-        .bg-brown-500 { background-color: #b38867; }
-        .bg-brown-600 { background-color: #9c7356; }
-        .bg-brown-700 { background-color: #7d5a44; }
-        .bg-brown-800 { background-color: #5d4037; }
-        .bg-brown-900 { background-color: #3e2723; }
+        /* ألوان Tailwind CSS المخصصة */
+        .bg-brown-50 { background-color: white; }
+        .bg-brown-100 { background-color: #f8f9fa; }
+        .bg-brown-200 { background-color: #e9ecef; }
+        .bg-brown-300 { background-color: #dee2e6; }
+        .bg-brown-400 { background-color: #ced4da; }
+        .bg-brown-500 { background-color: #5C8076; }
+        .bg-brown-600 { background-color: #5C8076; }
+        .bg-brown-700 { background-color: #5C8076; }
+        .bg-brown-800 { background-color: #5C8076; }
+        .bg-brown-900 { background-color: #5C8076; }
 
-        .text-brown-50 { color: #f8f5f2; }
-        .text-brown-100 { color: #f0e9e2; }
-        .text-brown-200 { color: #e6d9cc; }
-        .text-brown-300 { color: #d7c3b0; }
-        .text-brown-400 { color: #c5aa93; }
-        .text-brown-500 { color: #b38867; }
-        .text-brown-600 { color: #9c7356; }
-        .text-brown-700 { color: #7d5a44; }
-        .text-brown-800 { color: #5d4037; }
-        .text-brown-900 { color: #3e2723; }
+        .text-brown-50 { color: white; }
+        .text-brown-100 { color: #f8f9fa; }
+        .text-brown-200 { color: #e9ecef; }
+        .text-brown-300 { color: #dee2e6; }
+        .text-brown-400 { color: #ced4da; }
+        .text-brown-500 { color: #5C8076; }
+        .text-brown-600 { color: #5C8076; }
+        .text-brown-700 { color: #5C8076; }
+        .text-brown-800 { color: #5C8076; }
+        .text-brown-900 { color: #5C8076; }
 
-        .border-brown-500 { border-color: #b38867; }
-        .border-brown-600 { border-color: #9c7356; }
+        .border-brown-500 { border-color: #5C8076; }
+        .border-brown-600 { border-color: #5C8076; }
         
-        .hover\:bg-brown-50:hover { background-color: #f8f5f2; }
-        .hover\:bg-brown-100:hover { background-color: #f0e9e2; }
-        .hover\:bg-brown-600:hover { background-color: #9c7356; }
-        .hover\:bg-brown-700:hover { background-color: #7d5a44; }
+        .hover\:bg-brown-50:hover { background-color: white; }
+        .hover\:bg-brown-100:hover { background-color: #f8f9fa; }
+        .hover\:bg-brown-600:hover { background-color: #4c6b64; }
+        .hover\:bg-brown-700:hover { background-color: #3d574f; }
         
-        .hover\:text-brown-600:hover { color: #9c7356; }
-        .hover\:text-brown-700:hover { color: #7d5a44; }
+        .hover\:text-brown-600:hover { color: #5C8076; }
+        .hover\:text-brown-700:hover { color: #5C8076; }
         
-        .hover\:border-brown-500:hover { border-color: #b38867; }
+        .hover\:border-brown-500:hover { border-color: #5C8076; }
     </style>
 </head>
 <body class="bg-brown-50">
     <!-- شريط التنقل -->
-    <nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+    <nav class="bg-brown-500 shadow-md fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <!-- الشعار -->
                 <a href="#home" class="text-2xl font-bold text-primary-600" onclick="changePage('home')">
-                    <span class="text-brown-700">سوبر</span><span class="text-brown-500">ماركت</span>
+                    <span class="text-white">سوبر</span><span class="text-white">ماركت</span>
                 </a>
                 
                 <!-- روابط التنقل - للشاشات المتوسطة والكبيرة -->
                 <div class="hidden md:flex items-center">
-                    <a href="#home" class="nav-link" onclick="changePage('home')">الرئيسية</a>
-                    <a href="#features" class="nav-link" onclick="changePage('features')">المميزات</a>
-                    <a href="#how-it-works" class="nav-link" onclick="changePage('how-it-works')">كيف تعمل</a>
-                    <a href="#pricing" class="nav-link" onclick="changePage('pricing')">الأسعار</a>
-                    <a href="#testimonials" class="nav-link" onclick="changePage('testimonials')">آراء العملاء</a>
-                    <a href="#about" class="nav-link" onclick="changePage('about')">من نحن</a>
+                    <a href="#home" class="nav-link text-white" onclick="changePage('home')">الرئيسية</a>
+                    <a href="#features" class="nav-link text-white" onclick="changePage('features')">المميزات</a>
+                    <a href="#how-it-works" class="nav-link text-white" onclick="changePage('how-it-works')">كيف تعمل</a>
+                    <a href="#pricing" class="nav-link text-white" onclick="changePage('pricing')">الأسعار</a>
+                    <a href="#testimonials" class="nav-link text-white" onclick="changePage('testimonials')">آراء العملاء</a>
+                    <a href="#about" class="nav-link text-white" onclick="changePage('about')">من نحن</a>
                 </div>
                 
                 <!-- أزرار تسجيل الدخول والتسجيل -->
                 <div class="hidden md:flex items-center">
-                    <a href="#login" class="nav-link mr-4" onclick="changePage('login')">تسجيل الدخول</a>
-                    <a href="#register" class="cta-button" onclick="changePage('register')">إنشاء حساب</a>
+                    <a href="#login" class="nav-link text-white mr-4" onclick="changePage('login')">تسجيل الدخول</a>
+                    <a href="#register" onclick="changePage('register')">إنشاء حساب</a>
                 </div>
                 
                 <!-- زر القائمة للجوال -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-brown-700">
+                    <button id="mobile-menu-button" class="text-white">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -238,14 +238,14 @@
             
             <!-- قائمة الجوال -->
             <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
-                <a href="#home" class="block py-2 text-center" onclick="changePage('home')">الرئيسية</a>
-                <a href="#features" class="block py-2 text-center" onclick="changePage('features')">المميزات</a>
-                <a href="#how-it-works" class="block py-2 text-center" onclick="changePage('how-it-works')">كيف تعمل</a>
-                <a href="#pricing" class="block py-2 text-center" onclick="changePage('pricing')">الأسعار</a>
-                <a href="#testimonials" class="block py-2 text-center" onclick="changePage('testimonials')">آراء العملاء</a>
-                <a href="#about" class="block py-2 text-center" onclick="changePage('about')">من نحن</a>
-                <a href="#login" class="block py-2 text-center" onclick="changePage('login')">تسجيل الدخول</a>
-                <a href="#register" class="block py-2 bg-brown-600 text-white rounded-lg mx-4 text-center" onclick="changePage('register')">إنشاء حساب</a>
+                <a href="#home" class="block py-2 text-center text-white" onclick="changePage('home')">الرئيسية</a>
+                <a href="#features" class="block py-2 text-center text-white" onclick="changePage('features')">المميزات</a>
+                <a href="#how-it-works" class="block py-2 text-center text-white" onclick="changePage('how-it-works')">كيف تعمل</a>
+                <a href="#pricing" class="block py-2 text-center text-white" onclick="changePage('pricing')">الأسعار</a>
+                <a href="#testimonials" class="block py-2 text-center text-white" onclick="changePage('testimonials')">آراء العملاء</a>
+                <a href="#about" class="block py-2 text-center text-white" onclick="changePage('about')">من نحن</a>
+                <a href="#login" class="block py-2 text-center text-white" onclick="changePage('login')">تسجيل الدخول</a>
+                <a href="#register" class="block py-2 bg-white text-brown-600 rounded-lg mx-4 text-center" onclick="changePage('register')">إنشاء حساب</a>
             </div>
         </div>
     </nav>
@@ -445,30 +445,6 @@
                                 </li>
                             </ul>
                         </div>
-                        
-                        <!-- <div class="feature-card bg-white border border-gray-200 p-6 rounded-lg hover:border-brown-500">
-                            <div class="flex items-center mb-4">
-                                <div class="bg-brown-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-truck text-brown-600 text-xl"></i>
-                                </div>
-                                <h3 class="font-bold text-xl">إدارة التوصيل والشحن</h3>
-                            </div>
-                            <p class="text-gray-600 mb-4">نظام متكامل لإدارة طلبات التوصيل ومتابعة حالة الشحن وإشعار العملاء.</p>
-                            <ul class="text-gray-600">
-                                <li class="mb-2 flex items-start">
-                                    <i class="fas fa-check text-brown-500 mt-1 ml-2"></i>
-                                    <span>تحديد مناطق التوصيل وأسعار مختلفة</span>
-                                </li>
-                                <li class="mb-2 flex items-start">
-                                    <i class="fas fa-check text-brown-500 mt-1 ml-2"></i>
-                                    <span>متابعة حالة الطلبات في الوقت الفعلي</span>
-                                </li>
-                                <li class="mb-2 flex items-start">
-                                    <i class="fas fa-check text-brown-500 mt-1 ml-2"></i>
-                                    <span>التكامل مع شركات التوصيل الخارجية</span>
-                                </li>
-                            </ul>
-                        </div> -->
                         
                         <div class="feature-card bg-white border border-gray-200 p-6 rounded-lg hover:border-brown-500">
                             <div class="flex items-center mb-4">
@@ -795,10 +771,6 @@
                                 <h4 class="font-bold text-lg mb-2">هل هناك فترة تجريبية مجانية؟</h4>
                                 <p class="text-gray-600">نعم، نقدم فترة تجريبية مجانية لمدة 14 يومًا لجميع الخطط بدون الحاجة إلى بطاقة ائتمان.</p>
                             </div>
-                            <!-- <div class="py-4">
-                                <h4 class="font-bold text-lg mb-2">كيف يتم حساب العمولة على المبيعات؟</h4>
-                                <p class="text-gray-600">يتم حساب العمولة على إجمالي قيمة الطلب بدون تكلفة التوصيل. يتم خصمها تلقائيًا وتحويل المبلغ المتبقي إلى حسابك البنكي.</p>
-                            </div> -->
                             <div class="py-4">
                                 <h4 class="font-bold text-lg mb-2">هل هناك تكاليف إضافية أخرى؟</h4>
                                 <p class="text-gray-600">لا توجد تكاليف خفية. الأسعار المعلنة تشمل جميع الميزات المذكورة في كل خطة، بالإضافة إلى نسبة العمولة على المبيعات.</p>
@@ -1075,80 +1047,6 @@
                         </div>
                     </div>
                     
-                    <!-- إنجازاتنا
-                    <div class="mb-20">
-                        <h3 class="text-2xl font-bold text-center mb-10">إنجازاتنا</h3>
-                        <div class="relative">
-                     
-                            <div class="absolute h-full w-1 bg-brown-200 left-1/2 transform -translate-x-1/2"></div>
-                            
-                  
-                            <div class="relative z-10 mb-12">
-                                <div class="flex items-center flex-col md:flex-row">
-                                    <div class="md:w-1/2 mb-8 md:mb-0 md:text-left text-center order-last md:order-first pr-0 md:pr-8 md:ml-8">
-                                        <div class="bg-white rounded-lg shadow-md p-6">
-                                            <h4 class="font-bold text-lg mb-2">2018</h4>
-                                            <p class="text-gray-600">تأسيس الشركة وإطلاق النسخة التجريبية من المنصة مع 10 متاجر.</p>
-                                        </div>
-                                    </div>
-                                    <div class="bg-brown-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">2018</div>
-                                </div>
-                            </div>
-                            
-                    
-                            <div class="relative z-10 mb-12">
-                                <div class="flex items-center flex-col md:flex-row-reverse">
-                                    <div class="md:w-1/2 mb-8 md:mb-0 md:text-right text-center pl-0 md:pl-8 md:mr-8">
-                                        <div class="bg-white rounded-lg shadow-md p-6">
-                                            <h4 class="font-bold text-lg mb-2">2019</h4>
-                                            <p class="text-gray-600">توسيع الفريق وإطلاق النسخة الرسمية الأولى. بلغ عدد المتاجر 100 متجر.</p>
-                                        </div>
-                                    </div>
-                                    <div class="bg-brown-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">2019</div>
-                                </div>
-                            </div>
-                            
-                         
-                            <div class="relative z-10 mb-12">
-                                <div class="flex items-center flex-col md:flex-row">
-                                    <div class="md:w-1/2 mb-8 md:mb-0 md:text-left text-center order-last md:order-first pr-0 md:pr-8 md:ml-8">
-                                        <div class="bg-white rounded-lg shadow-md p-6">
-                                            <h4 class="font-bold text-lg mb-2">2020</h4>
-                                            <p class="text-gray-600">إطلاق تطبيق الجوال وتجاوز 500 متجر. ساعدنا المتاجر على التكيف خلال فترة جائحة كورونا.</p>
-                                        </div>
-                                    </div>
-                                    <div class="bg-brown-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">2020</div>
-                                </div>
-                            </div>
-                            
-                        
-                            <div class="relative z-10 mb-12">
-                                <div class="flex items-center flex-col md:flex-row-reverse">
-                                    <div class="md:w-1/2 mb-8 md:mb-0 md:text-right text-center pl-0 md:pl-8 md:mr-8">
-                                        <div class="bg-white rounded-lg shadow-md p-6">
-                                            <h4 class="font-bold text-lg mb-2">2021</h4>
-                                            <p class="text-gray-600">حصلنا على جولة تمويل ناجحة، وأطلقنا ميزات جديدة مثل نظام الولاء ونقاط المكافآت.</p>
-                                        </div>
-                                    </div>
-                                    <div class="bg-brown-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">2021</div>
-                                </div>
-                            </div>
-                            
-                    
-                            <div class="relative z-10">
-                                <div class="flex items-center flex-col md:flex-row">
-                                    <div class="md:w-1/2 mb-8 md:mb-0 md:text-left text-center order-last md:order-first pr-0 md:pr-8 md:ml-8">
-                                        <div class="bg-white rounded-lg shadow-md p-6">
-                                            <h4 class="font-bold text-lg mb-2">2022 - حتى الآن</h4>
-                                            <p class="text-gray-600">توسعنا لنشمل أسواقًا جديدة وتجاوزنا حاجز 1000 متجر. إطلاق حلول متكاملة للمتاجر الكبيرة.</p>
-                                        </div>
-                                    </div>
-                                    <div class="bg-brown-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">2022+</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    
                     <!-- اتصل بنا -->
                     <div class="bg-brown-50 p-8 rounded-lg shadow-md text-center">
                         <h3 class="text-2xl font-bold mb-4">اتصل بنا</h3>
@@ -1229,11 +1127,7 @@
     </div>
 </section>
 
-
         <!-- صفحة إنشاء حساب -->
-<!-- صفحة إنشاء حساب -->
-
-<!-- صفحة إنشاء حساب -->
 <section id="register" class="page-content py-8">
     <div class="page-section bg-brown-50 flex items-center justify-center">
         <div class="container mx-auto px-4">
@@ -1340,61 +1234,61 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">منصة السوبر ماركت</h3>
-                    <p class="text-bg-brown-50 hover:text-gray-400 ">
+                    <p class="text-white">
                         المنصة الرائدة في مجال التجارة الإلكترونية للسوبر ماركت في المنطقة العربية، نساعد المتاجر على النمو رقميًا.
                     </p>
-                    <div class="flex space-x-4 space-x-reverse">
-                        <a href="#" class="text-bg-brown-50 hover:text-gray-400 "><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-bg-brown-50 hover:text-gray-400 "><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-bg-brown-50 hover:text-gray-400 "><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-bg-brown-50 hover:text-gray-400 "><i class="fab fa-linkedin-in"></i></a>
+                    <div class="flex space-x-4 space-x-reverse mt-4">
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
                     <ul class="space-y-2">
-                        <li><a href="#features" class="text-bg-brown-50 hover:text-gray-400 " onclick="changePage('features')">المميزات</a></li>
-                        <li><a href="#how-it-works" class="text-bg-brown-50 hover:text-gray-400 " onclick="changePage('how-it-works')">كيف تعمل</a></li>
-                        <li><a href="#pricing" class="text-bg-brown-50 hover:text-gray-400 " onclick="changePage('pricing')">الأسعار</a></li>
-                        <li><a href="#testimonials" class="text-bg-brown-50 hover:text-gray-400 " onclick="changePage('testimonials')">آراء العملاء</a></li>
-                        <li><a href="#about" class="text-bg-brown-50 hover:text-gray-400 " onclick="changePage('about')">من نحن</a></li>
+                        <li><a href="#features" class="text-white hover:text-gray-300" onclick="changePage('features')">المميزات</a></li>
+                        <li><a href="#how-it-works" class="text-white hover:text-gray-300" onclick="changePage('how-it-works')">كيف تعمل</a></li>
+                        <li><a href="#pricing" class="text-white hover:text-gray-300" onclick="changePage('pricing')">الأسعار</a></li>
+                        <li><a href="#testimonials" class="text-white hover:text-gray-300" onclick="changePage('testimonials')">آراء العملاء</a></li>
+                        <li><a href="#about" class="text-white hover:text-gray-300" onclick="changePage('about')">من نحن</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">المساعدة والدعم</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-bg-brown-50 hover:text-gray-400 ">مركز المساعدة</a></li>
-                        <li><a href="#" class="text-bg-brown-50 hover:text-gray-400 ">الأسئلة الشائعة</a></li>
-                        <li><a href="#" class="text-bg-brown-50 hover:text-gray-400 ">التواصل مع الدعم</a></li>
-                        <li><a href="#" class="text-bg-brown-50 hover:text-gray-400 ">الشروط والأحكام</a></li>
-                        <li><a href="#" class="text-bg-brown-50 hover:text-gray-400 ">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-300">مركز المساعدة</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-300">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-300">التواصل مع الدعم</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-300">الشروط والأحكام</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-300">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">اتصل بنا</h3>
                     <ul class="space-y-2">
                         <li class="flex items-start">
-                            <i class="text-bg-brown-50 hover:text-gray-400 "></i>
-                            <span class="text-bg-brown-50 hover:text-gray-400 ">     حضرموت,المكلا</span>
+                            <i class="fas fa-map-marker-alt mt-1 ml-2"></i>
+                            <span class="text-white">حضرموت,المكلا</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 ml-2 text-gray-400"></i>
-                            <a href="tel:+966123456789" class="text-bg-brown-50 hover:text-gray-400 ">+967 733 972 484</a>
+                            <i class="fas fa-phone-alt mt-1 ml-2"></i>
+                            <a href="tel:+966123456789" class="text-white hover:text-gray-300">+967 733 972 484</a>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 ml-2 text-gray-400"></i>
-                            <a href="mailto:info@supermarket-platform.com" class="text-bg-brown-50 hover:text-gray-400 ">VibCart@gmail.com</a>
+                            <i class="fas fa-envelope mt-1 ml-2"></i>
+                            <a href="mailto:info@supermarket-platform.com" class="text-white hover:text-gray-300">VibCart@gmail.com</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <hr class="border-brown-700 my-8">
-            <div class="text-center text-gray-400">
+            <hr class="border-gray-700 my-8">
+            <div class="text-center text-white">
                 <p>&copy; 2023 منصة السوبر ماركت. جميع الحقوق محفوظة.</p>
             </div>
             
             <!-- Laravel Comments -->
-            <div class="mt-4 text-xs text-gray-600 text-center">
+            <div class="mt-4 text-xs text-gray-500 text-center">
                 <!-- 
                 في Laravel، يمكن استخدام:
                 <footer>
@@ -1476,30 +1370,6 @@
             }
         });
         
-        // التحقق من صحة نموذج تسجيل الدخول
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // هنا يمكن إضافة كود التحقق من صحة البيانات
-            alert('تم تسجيل الدخول بنجاح!');
-        });
-        
-        // التحقق من صحة نموذج إنشاء الحساب
-        document.getElementById('register-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const password = document.getElementById('register-password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-            
-            if (password !== confirmPassword) {
-                alert('كلمة المرور غير متطابقة. يرجى المحاولة مرة أخرى.');
-                return;
-            }
-            
-            // هنا يمكن إضافة المزيد من التحققات
-            
-            alert('تم إنشاء الحساب بنجاح!');
-        });
-        
         // حل المشكلة عند استخدام الهاش في الرابط
         window.addEventListener('load', function() {
             const hash = window.location.hash.replace('#', '');
@@ -1507,8 +1377,6 @@
                 changePage(hash);
             }
         });
-        
-       
     </script>
 </body>
 </html>

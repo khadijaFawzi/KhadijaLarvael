@@ -27,25 +27,28 @@ class CartController extends Controller
                 ->get();
 
     // عدل التجميع ليستخدم id بدل الاسم في المفتاح، وليرسل كلاهما في الاستجابة
-    $groups = $items
-        ->groupBy(fn($i) => $i->supermarket->id) // جمع حسب id وليس الاسم
-        ->map(function ($group, $supermarketId) {
-            $supermarketName = $group->first()->supermarket->SupermarketName ?? '';
-            return [
-                'supermarket_id' => $supermarketId, // <-- جديد
-                'supermarket'    => $supermarketName,
-                'subtotal'       => $group->sum(fn($i) => $i->price * $i->quantity),
-                'items'          => $group->map(fn($i) => [
-                    'id'           => $i->id,
-                    'product_id'   => $i->product_id,
-                    'product_name' => $i->product->product_name,
-                    'quantity'     => $i->quantity,
-                    'price'        => $i->price,
-                    'total'        => $i->price * $i->quantity,
-                    'image_url'    => asset('products/'.$i->product->Image),
-                ])->values(),
-            ];
-        })->values();
+   $groups = $items
+    ->groupBy(fn($i) => $i->supermarket->id)
+    ->map(function ($group, $supermarketId) {
+        $supermarketName = $group->first()->supermarket->SupermarketName ?? '';
+        return [
+            'supermarket_id' => $supermarketId,
+            'supermarket'    => $supermarketName,
+            'subtotal'       => $group->sum(fn($i) => $i->price * $i->quantity),
+            'items'          => $group->map(fn($i) => [
+                'id'             => $i->id,
+                'product_id'     => $i->product_id,
+                'product_name'   => $i->product->product_name,
+                'supermarket_id' => $supermarketId,
+                'supermarket'    => $supermarketName, // هذا السطر سيحل مشكلتك مع الفلاتر
+                'quantity'       => $i->quantity,
+                'price'          => $i->price,
+                'total'          => $i->price * $i->quantity,
+                'image_url'      => asset('products/'.$i->product->Image),
+            ])->values(),
+        ];
+    })->values();
+
 
     return response()->json([
         'status' => true,

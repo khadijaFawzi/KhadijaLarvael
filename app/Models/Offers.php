@@ -38,4 +38,13 @@ class Offers extends Model
         'start_date' => 'date',      // يحول إلى Carbon
         'end_date'   => 'date',
     ];
+
+
+    // في app/Models/Product.php و app/Models/Offer.php
+public function favorites()
+{
+    return $this->morphMany(Favorite::class, 'favoritable');
 }
+
+}
+
